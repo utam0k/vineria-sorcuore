@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
-  assetPrefix: './',
+  assetPrefix: process.env.GITHUB_PAGES ? '/vineria-sorcuore' : '',
 };
