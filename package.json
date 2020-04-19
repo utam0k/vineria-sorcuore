@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --cache --fix --ext js --ext ts --ext tsx src/",
+    "export": "next export",
     "static": "next build && next export"
   },
   "husky": {
@@ -40,6 +41,7 @@
     "@types/react": "^16.9.23",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.24.0",
+    "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
