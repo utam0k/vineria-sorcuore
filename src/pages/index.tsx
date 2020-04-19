@@ -1,5 +1,14 @@
 import React from 'react';
+import { ThemeProvider, Heading, CSSReset } from '@chakra-ui/core';
 
-const Home = () => <h1>Hello world!</h1>;
+import { Header } from '../components/Header/Header';
+
+const Home = () => (
+  <ThemeProvider>
+    <CSSReset />
+    <Header />
+    <Heading>Vineria Sorcuor</Heading>
+  </ThemeProvider>
+);
 
 export default Home;
