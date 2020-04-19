@@ -1,50 +1,50 @@
 import React, { useState, useCallback } from 'react';
-import { Box, Heading, Flex, Text, Button } from '@chakra-ui/core';
+import { Heading, Flex, useTheme, Button } from '@chakra-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { SideMenu } from '../SideMenu/SideMenu';
+import { MenuItem } from '../MenuItem/MenuItem';
 
-const MenuItems: React.FC = ({ children }) => (
-  <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
-    {children}
-  </Text>
-);
+export const Header: React.FC = () => {
+  const theme = useTheme();
 
-export const Header: React.FC<any> = (props) => {
-  const [show, setShow] = useState(false);
-  const handleToggle = useCallback(() => setShow((show) => !show), []);
+  const [isSideMenuShow, setSideMenuShow] = useState(false);
+
+  const onClick = useCallback(() => {
+    setSideMenuShow((show) => !show);
+  }, []);
+
+  const onClose = useCallback(() => {
+    setSideMenuShow(false);
+  }, []);
 
   return (
     <Flex
+      position="sticky"
       as="nav"
-      align="center"
-      justify="space-between"
-      wrap="wrap"
-      padding="1.5rem"
-      bg="teal.500"
-      color="white"
-      {...props}
+      backgroundColor="green.400"
+      width="100%"
+      px={theme.space[4]}
+      py={theme.space[5]}
+      borderBottom="2px solid"
+      borderColor="green.900"
+      alignItems="center"
+      justifyContent="center"
+      zIndex={theme.zIndices.sticky}
+      top={0}
     >
-      <Flex align="center" mr={5}>
-        <Heading as="h1" size="lg">
-          Vineria Sorcuor
-        </Heading>
+      <Heading as="h1" size="lg" margin="0" flexGrow={1}>
+        Vineria Sorcuor
+      </Heading>
+      <Flex display={['none', 'flex', 'flex', 'flex']}>
+        <MenuItem href="/">ホーム</MenuItem>
+        <MenuItem href="/menu">メニュー</MenuItem>
+        <MenuItem href="/reservation">ご予約</MenuItem>
       </Flex>
-
-      <Box display={{ sm: 'block', md: 'none' }} onClick={handleToggle}>
-        <svg fill="white" width="12px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <title>Menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-        </svg>
-      </Box>
-
-      <Box
-        display={{ sm: show ? 'block' : 'none', md: 'flex' }}
-        width={{ sm: 'full', md: 'auto' }}
-        alignItems="center"
-        flexGrow={1}
-      >
-        <MenuItems>ホーム</MenuItems>
-        <MenuItems>メニュー</MenuItems>
-        <MenuItems>ご予約</MenuItems>
-      </Box>
+      <Button display={['block', 'none', 'none', 'none']} aria-label="" background="transparent" onClick={onClick}>
+        <FontAwesomeIcon icon={faBars} />
+      </Button>
+      <SideMenu isOpen={isSideMenuShow} onClose={onClose} />
     </Flex>
   );
 };
