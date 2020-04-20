@@ -1,7 +1,7 @@
 import React from 'react';
-import { useTheme, Box, ThemeProvider, Heading, CSSReset } from '@chakra-ui/core';
+import { useTheme, Box, Heading } from '@chakra-ui/core';
 
-import { Header } from '../components/Header/Header';
+import { Layout } from '../templates/Layout/Layout';
 
 const Description = () => {
   const theme = useTheme();
@@ -58,11 +58,9 @@ const Description = () => {
 };
 
 const Home = () => (
-  <ThemeProvider>
-    <CSSReset />
-    <Header />
+  <Layout>
     <Description />
-  </ThemeProvider>
+  </Layout>
 );
 
 export default Home;

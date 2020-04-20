@@ -1,15 +1,11 @@
 import React from 'react';
-import { ThemeProvider, CSSReset } from '@chakra-ui/core';
-import { Header } from '../components/Header/Header';
+import { Layout } from '../templates/Layout/Layout';
 
 const Reservation = () => {
   return (
-    <ThemeProvider>
-      <CSSReset />
-      <Header />
-
+    <Layout>
       <h1>Reservation</h1>
-    </ThemeProvider>
+    </Layout>
   );
 };
 

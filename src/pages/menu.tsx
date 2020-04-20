@@ -1,15 +1,12 @@
 import React from 'react';
-import { Stack, ThemeProvider, CSSReset } from '@chakra-ui/core';
-import { Header } from '../components/Header/Header';
+import { Stack } from '@chakra-ui/core';
 
 import { Card } from '../components/Card/Card';
+import { Layout } from '../templates/Layout/Layout';
 
 const Menu = () => {
   return (
-    <ThemeProvider>
-      <CSSReset />
-      <Header />
-
+    <Layout>
       <h1>Menu</h1>
 
       <Stack isInline shouldWrapChildren spacing={8} align="center" margin="auto" display="inline-block">
@@ -131,7 +128,7 @@ const Menu = () => {
           {' '}
         </Card>
       </Stack>
-    </ThemeProvider>
+    </Layout>
   );
 };
 
