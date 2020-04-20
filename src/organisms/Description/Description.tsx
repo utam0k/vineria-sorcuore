@@ -8,12 +8,12 @@ export const Description = () => {
     <Box position="relative" width="100vw" height="100vh" overflow="hidden">
       <Box
         position="absolute"
-        top="-3px"
-        left="-3px"
-        right="-3px"
-        bottom="-3px"
+        top="-8px"
+        left="-8px"
+        right="-8px"
+        bottom="-8px"
         zIndex={-1}
-        style={{ filter: 'blur(2px)' }}
+        style={{ filter: 'blur(4px)' }}
         backgroundPosition="center 80%"
         backgroundSize="cover"
         backgroundRepeat="no-repeat"
@@ -28,7 +28,7 @@ export const Description = () => {
         width="100%"
         height="100%"
         backgroundColor="#54140d"
-        opacity={0.18}
+        opacity={0.24}
         pointerEvents="none"
       />
       <Box
