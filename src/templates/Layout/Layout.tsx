@@ -19,6 +19,7 @@ export const Layout: React.FC = ({ children }) => (
         styles={css`
           body {
             font-family: 'Libre Baskerville', 'Kosugi Maru', sans-serif;
+            overflow-x: hidden;
           }
         `}
       />

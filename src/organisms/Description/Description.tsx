@@ -1,36 +1,13 @@
 import React from 'react';
 import { useTheme, Box, Heading } from '@chakra-ui/core';
+import { BackgroundImage } from '../../atoms/BackgroundImage/BackgroundImage';
 
 export const Description = () => {
   const theme = useTheme();
 
   return (
-    <Box position="relative" width="100vw" height="100vh" overflow="hidden">
-      <Box
-        position="absolute"
-        top="-8px"
-        left="-8px"
-        right="-8px"
-        bottom="-8px"
-        zIndex={-1}
-        style={{ filter: 'blur(4px)' }}
-        backgroundPosition="center 80%"
-        backgroundSize="cover"
-        backgroundRepeat="no-repeat"
-        backgroundImage="url(https://jimdo-storage.freetls.fastly.net/image/58320648/3f512aac-76f4-42c5-8833-5350694f1c56.jpg?format=pjpg&quality=80&auto=webp&disable=upscale&width=1920&height=1440)"
-        pointerEvents="none"
-      />
-      <Box
-        position="absolute"
-        top="0"
-        left="0"
-        zIndex={0}
-        width="100%"
-        height="100%"
-        backgroundColor="#54140d"
-        opacity={0.24}
-        pointerEvents="none"
-      />
+    <Box position="relative" width="100%" height="100vh" overflow="hidden">
+      <BackgroundImage imageUrl="http://u0u0.net/Yep3" overlayColor="#54140d" />
       <Box
         backgroundColor="rgba(255, 255, 255, 0.4)"
         display="inline-block"
