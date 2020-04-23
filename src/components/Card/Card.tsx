@@ -15,7 +15,7 @@ export const Card: React.FC<Props> = ({ imageUrl, imageAlt, title, price, descri
     <Box p="6">
       <Box d="flex" alignItems="baseline">
         <Badge rounded="full" px="2" variantColor="teal">
-          Takeout
+          地方発送可
         </Badge>
       </Box>
 
