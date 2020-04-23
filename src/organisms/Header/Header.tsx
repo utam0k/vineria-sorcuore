@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Heading, Flex, useTheme, Button } from '@chakra-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +9,7 @@ export const Header: React.FC = () => {
   const theme = useTheme();
 
   const [isSideMenuShow, setSideMenuShow] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState('rgba(0, 0, 0, 0)');
 
   const onClick = useCallback(() => {
     setSideMenuShow((show) => !show);
@@ -18,12 +19,23 @@ export const Header: React.FC = () => {
     setSideMenuShow(false);
   }, []);
 
+  const onScroll = useCallback(() => {
+    const alpha = Math.min(window.pageYOffset / window.outerHeight, 0.8);
+    setBackgroundColor(`rgba(0, 0, 0, ${alpha})`);
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('scroll', onScroll);
+    return () => document.removeEventListener('scroll', onScroll);
+  }, [onScroll]);
+
   return (
     <Flex
       position="fixed"
       as="nav"
-      background="transparent"
-      width={['95%', '95%', '75%']}
+      background={backgroundColor}
+      width="100%"
+      px={theme.space[10]}
       py={theme.space[5]}
       alignItems="center"
       justifyContent="center"
@@ -43,7 +55,7 @@ export const Header: React.FC = () => {
       >
         Vineria Sorcuor
       </Heading>
-      <Flex display={['none', 'flex', 'flex', 'flex']}>
+      <Flex display={['none', 'none', 'flex', 'flex']}>
         <LinkItem
           href="/"
           fontWeight="bold"
@@ -90,13 +102,13 @@ export const Header: React.FC = () => {
         </LinkItem>
       </Flex>
       <Button
-        display={['block', 'none', 'none', 'none']}
+        display={['block', 'block', 'none', 'none']}
         p={0}
         aria-label=""
         background="transparent"
         onClick={onClick}
       >
-        <FontAwesomeIcon icon={faBars} />
+        <FontAwesomeIcon icon={faBars} color={theme.colors.green[500]} />
       </Button>
       <SideMenu isOpen={isSideMenuShow} onClose={onClose} />
     </Flex>
