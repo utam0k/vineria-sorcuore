@@ -1,130 +1,74 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useState, useEffect } from 'react';
-import { Heading, useTheme, Box, Flex, Button } from '@chakra-ui/core';
+import { Heading, useTheme, Box, Flex } from '@chakra-ui/core';
 import { BackgroundImage } from '../../atoms/BackgroundImage/BackgroundImage';
-import NextLink from 'next/link';
-
-// TODO: Timeout(https://dev.to/vitaliemaldur/resize-event-listener-using-react-hooks-1k0c)
-function useWindowSize() {
-  const isClient = typeof window === 'object';
-
-  function getSize() {
-    return {
-      width: isClient ? window.innerWidth : undefined,
-      height: isClient ? window.innerHeight : undefined,
-    };
-  }
-
-  const [windowSize, setWindowSize] = useState(getSize);
-
-  useEffect(() => {
-    if (!isClient) {
-      // return false;
-      return;
-    }
-
-    function handleResize() {
-      setWindowSize(getSize());
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []); // Empty array ensures that effect is only run on mount and unmount
-
-  return windowSize;
-}
+import { DescriptionItem } from './DescriptionItem';
+import { useWindowSize } from '../../utils/hooks/useWindowSize';
 
 export const Description = () => {
   const theme = useTheme();
   const windowSize = useWindowSize();
-  const height = windowSize.height && windowSize.height > 1000 ? windowSize.height : 1000;
+  const ref = useRef<HTMLElement>(null);
+
+  const [height, setHeight] = useState<number>(-1);
+
+  useEffect(() => {
+    if (!ref.current || !windowSize.height || !windowSize.width) return;
+
+    if (windowSize.width > windowSize.height) {
+      setHeight(-1);
+      return;
+    }
+
+    const clientHeight = ref.current.scrollHeight;
+    if (clientHeight > windowSize.height) {
+      setHeight(clientHeight);
+      return;
+    }
+    setHeight(windowSize.height);
+  }, [windowSize, ref]);
 
   return (
-    <Box
-      position="relative"
-      width="100%"
-      height={height}
-      maxHeight="fit-content"
-      minHeight="fit-content"
-      overflow="hidden"
-    >
+    <Box as="section" position="relative" width="100%" height={height} minHeight="100vh" overflow="hidden" ref={ref}>
       <BackgroundImage imageUrl="http://u0u0.net/Yep3" overlayColor="#54140d" />
-      <Box display="block" width="100%" marginTop="100px" textAlign="center">
-        <Heading as="h1" size="2xl" marginBottom="28px" display="block" color="#fff">
-          笑顔になれる楽しい本格イタリアン
-        </Heading>
-        <Flex flexWrap="wrap" justify="center" align="center" margin-top="20%" height="350px">
-          <Box
-            backgroundColor="rgba(255, 255, 255, 0.7)"
-            display="block"
-            flex-direction="column"
-            rounded={4}
-            margin="8px"
-            padding={theme.space[8]}
-            maxWidth="sm"
-            top="25%"
-            left={{ sm: 0, lg: '8%' }}
-            height="100%"
-          >
-            <Heading as="h2" fontSize="small" margin={`0 0 0 16px`} fontFamily="'Kosugi Maru'">
-              ヴィネリアソルクオーレ
-            </Heading>
-            <Heading
-              m="8px 0"
-              as="h1"
-              marginBottom="16px"
-              fontWeight="normal"
-              fontStyle="italic"
-              fontFamily="'Libre Baskerville'"
-            >
-              Vineria Sorcuor
-            </Heading>
-            <Box display="block" whiteSpace="pre-wrap" fontSize="sm" letterSpacing={0.5}>
-              {`イタリア語で SORRISO (笑顔) CUORE (心)\nかけ合わせて作った造語それがソルクオーレです。\n心を込めて笑顔になれる楽しい本格イタリアンをお客様にお届けします。ぜひ、素敵な時間をお過ごしください。`}
-            </Box>
-            <NextLink href="/menu">
-              <Button marginTop={theme.space[6]} variantColor="teal" variant="solid" width="155px">
-                メニューを見る
-              </Button>
-            </NextLink>
-          </Box>
-
-          <Box
-            backgroundColor="rgba(255, 255, 255, 0.7)"
-            display="block"
-            flex-direction="column"
-            rounded={4}
-            maxWidth="sm"
-            margin="8px"
-            padding={theme.space[8]}
-            top="25%"
-            left={{ sm: 0, lg: '8%' }}
-            height="100%"
-          >
-            <Heading as="h2" fontSize="small" margin={`0 0 0 16px`} fontFamily="'Kosugi Maru'">
-              こだわり
-            </Heading>
-            <Heading
-              m="8px 0"
-              as="h1"
-              fontWeight="normal"
-              marginBottom="16px"
-              fontStyle="italic"
-              fontFamily="'Libre Baskerville'"
-            >
-              Commitment
-            </Heading>
-            <Box display="block" whiteSpace="pre-wrap" fontSize="sm" letterSpacing={0.5}>
-              {`イタリア滞在経験のあるシェフ神谷がお料理をご提供します。シェフ自ら、契約農家に足を運び厳選した食材でイタリアの郷土料理の味を再現し、冬にはジビエやトリュフ、春には野菜を使ったりと季節によってワインのマリアージュを考えています。`}
-            </Box>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJuTZyj2bUAjQgzpw8p86qmgYIjn4HnJA_JumEscltATE8qg/viewform">
-              <Button marginTop={theme.space[6]} variantColor="teal" variant="solid" width="155px">
-                テイクアウト
-              </Button>
-            </a>
-          </Box>
-        </Flex>
-      </Box>
+      <Heading
+        as="h1"
+        size="2xl"
+        textAlign="center"
+        marginTop={theme.space[24]}
+        marginX={theme.space[1]}
+        color={theme.colors.white}
+      >
+        笑顔になれる楽しい本格イタリアン
+      </Heading>
+      <Flex
+        flexWrap="wrap"
+        justify="space-evenly"
+        align="center"
+        marginTop={theme.space[32]}
+        marginBottom={theme.space[12]}
+      >
+        <DescriptionItem
+          label="ヴィネリアソルクオーレ"
+          title="Vineria Sorcuor"
+          link={{ label: 'メニューを見る', url: '/menu' }}
+        >
+          {
+            'イタリア語で SORRISO (笑顔) CUORE (心)\nかけ合わせて作った造語それがソルクオーレです。\n心を込めて笑顔になれる楽しい本格イタリアンをお客様にお届けします。\nぜひ、素敵な時間をお過ごしください。'
+          }
+        </DescriptionItem>
+        <DescriptionItem
+          label="こだわり"
+          title="Commitment"
+          link={{
+            label: 'テイクアウト',
+            url: 'https://docs.google.com/forms/d/e/1FAIpQLSfJuTZyj2bUAjQgzpw8p86qmgYIjn4HnJA_JumEscltATE8qg/viewform',
+            external: true,
+          }}
+        >
+          {`イタリア滞在経験のあるシェフ神谷がお料理をご提供します。\nシェフ自ら、契約農家に足を運び厳選した食材でイタリアの郷土料理の味を再現し、\n冬にはジビエやトリュフ、春には野菜を使ったりと季節によってワインのマリアージュを考えています。`}
+        </DescriptionItem>
+      </Flex>
     </Box>
   );
 };
