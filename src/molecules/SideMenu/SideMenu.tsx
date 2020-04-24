@@ -12,7 +12,7 @@ export const SideMenu: React.FC<Props> = ({ isOpen, onClose }) => {
     <Drawer isOpen={isOpen} onClose={onClose}>
       <DrawerOverlay />
       <DrawerContent>
-        <DrawerCloseButton />
+        <DrawerCloseButton aria-label="メニューを閉じる" />
         <DrawerHeader />
         <DrawerBody>
           <LinkItem href="/">ホーム</LinkItem>
