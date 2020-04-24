@@ -4,7 +4,7 @@ import { Description } from '../organisms/Description/Description';
 import { Instagrams } from '../organisms/Instagrams/Instagrams';
 
 const Home = () => (
-  <Layout>
+  <Layout position="fixed" needGradation>
     <Description />
     <Instagrams />
   </Layout>

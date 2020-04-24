@@ -5,7 +5,12 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { SideMenu } from '../../molecules/SideMenu/SideMenu';
 import { LinkItem } from '../../atoms/LinkItem/LinkItem';
 
-export const Header: React.FC = () => {
+type Props = {
+  position?: 'fixed' | 'sticky';
+  needGradation?: boolean;
+};
+
+export const Header: React.FC<Props> = ({ position = 'sticky', needGradation = false }) => {
   const theme = useTheme();
 
   const [isSideMenuShow, setSideMenuShow] = useState(false);
@@ -25,13 +30,17 @@ export const Header: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    if (!needGradation) {
+      setBackgroundColor('rgba(0, 0, 0, 0.8)');
+      return;
+    }
     document.addEventListener('scroll', onScroll);
     return () => document.removeEventListener('scroll', onScroll);
-  }, [onScroll]);
+  }, [needGradation, onScroll]);
 
   return (
     <Flex
-      position="fixed"
+      position={position}
       as="nav"
       background={backgroundColor}
       width="100%"
@@ -41,8 +50,6 @@ export const Header: React.FC = () => {
       justifyContent="center"
       zIndex={theme.zIndices.sticky}
       top={0}
-      left="50%"
-      transform="translateX(-50%)"
     >
       <Heading
         as="h1"
