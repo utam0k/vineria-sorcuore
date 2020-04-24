@@ -4,7 +4,7 @@ export const customTheme: DefaultTheme = {
   ...theme,
   fonts: {
     ...theme.fonts,
-    body: "'Libre Baskerville', 'Kosugi Maru', sans-serif",
-    heading: "'Libre Baskerville', 'Kosugi Maru', sans-serif",
+    body: "'Libre Baskerville', 'M PLUS 1p', sans-serif",
+    heading: "'Libre Baskerville', 'M PLUS 1p', sans-serif",
   },
 };

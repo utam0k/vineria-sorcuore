@@ -12,7 +12,7 @@ class MyDocument extends Document {
       <Html lang="ja">
         <Head>
           <link
-            href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Libre+Baskerville:ital,wght@0,700;1,400&display=swap"
+            href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;700&family=Libre+Baskerville:ital,wght@0,700;1,400&display=swap"
             rel="stylesheet"
           />
         </Head>
