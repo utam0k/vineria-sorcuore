@@ -19,14 +19,14 @@ export const DescriptionItem: React.FC<Props> = ({ label, title, link, children 
       as="article"
       position="relative"
       backgroundColor="rgba(255, 255, 255, 0.7)"
-      width={theme.sizes.sm}
-      height={theme.sizes.sm}
+      width={theme.sizes.md}
+      minHeight={theme.sizes.xs}
       margin={theme.space[2]}
       padding={theme.space[4]}
       textAlign="center"
       rounded={4}
     >
-      <Text fontSize="xs" marginBottom={theme.space[3]}>
+      <Text fontSize="xs" marginTop={theme.space[3]}>
         {label}
       </Text>
       <Heading as="h1" fontWeight="normal" fontStyle="italic">
@@ -37,35 +37,19 @@ export const DescriptionItem: React.FC<Props> = ({ label, title, link, children 
         fontWeight="300"
         whiteSpace="pre-wrap"
         overflowWrap="break-word"
-        textAlign="left"
-        marginTop={theme.space[6]}
+        marginTop={theme.space[5]}
+        marginBottom="32px"
         lineHeight="1.8em"
       >
         {children}
       </Text>
       {link.external ? (
         <Link href={link.url}>
-          <Button
-            position="absolute"
-            left="50%"
-            bottom={theme.space[4]}
-            variantColor="teal"
-            transform="translateX(-50%)"
-          >
-            {link.label}
-          </Button>
+          <Button variantColor="teal">{link.label}</Button>
         </Link>
       ) : (
         <NextLink href={link.url}>
-          <Button
-            position="absolute"
-            left="50%"
-            bottom={theme.space[4]}
-            variantColor="teal"
-            transform="translateX(-50%)"
-          >
-            {link.label}
-          </Button>
+          <Button variantColor="teal">{link.label}</Button>
         </NextLink>
       )}
     </Box>

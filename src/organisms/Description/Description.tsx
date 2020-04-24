@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useState, useEffect } from 'react';
-import { Heading, useTheme, Box, Flex } from '@chakra-ui/core';
+import { Heading, useTheme, Flex } from '@chakra-ui/core';
 import { BackgroundImage } from '../../atoms/BackgroundImage/BackgroundImage';
 import { DescriptionItem } from './DescriptionItem';
 import { useWindowSize } from '../../utils/hooks/useWindowSize';
@@ -29,7 +29,18 @@ export const Description = () => {
   }, [windowSize, ref]);
 
   return (
-    <Box as="section" position="relative" width="100%" height={height} minHeight="100vh" overflow="hidden" ref={ref}>
+    <Flex
+      as="section"
+      position="relative"
+      align="center"
+      justify="center"
+      width="100%"
+      direction="column"
+      height={height}
+      minHeight="100vh"
+      overflow="hidden"
+      ref={ref}
+    >
       <BackgroundImage imageUrl="http://u0u0.net/Yep3" overlayColor="#54140d" />
       <Heading
         as="h1"
@@ -43,9 +54,10 @@ export const Description = () => {
       </Heading>
       <Flex
         flexWrap="wrap"
-        justify="space-evenly"
+        justify="center"
         align="center"
-        marginTop={theme.space[32]}
+        width="100%"
+        marginTop={theme.space[8]}
         marginBottom={theme.space[12]}
       >
         <DescriptionItem
@@ -54,7 +66,7 @@ export const Description = () => {
           link={{ label: 'メニューを見る', url: '/menu' }}
         >
           {
-            'イタリア語で SORRISO (笑顔) CUORE (心)\nかけ合わせて作った造語それがソルクオーレです。\n心を込めて笑顔になれる楽しい本格イタリアンをお客様にお届けします。\nぜひ、素敵な時間をお過ごしください。'
+            'イタリア語で SORRISO (笑顔) CUORE (心)\nかけ合わせて作った造語それがソルクオーレです。\n心を込めて笑顔になれる楽しい本格イタリアンをお客様にお届けします。ぜひ、素敵な時間をお過ごしください。'
           }
         </DescriptionItem>
         <DescriptionItem
@@ -66,9 +78,9 @@ export const Description = () => {
             external: true,
           }}
         >
-          {`イタリア滞在経験のあるシェフ神谷がお料理をご提供します。\nシェフ自ら、契約農家に足を運び厳選した食材でイタリアの郷土料理の味を再現し、\n冬にはジビエやトリュフ、春には野菜を使ったりと季節によってワインのマリアージュを考えています。`}
+          {`イタリア滞在経験のあるシェフ神谷がお料理をご提供します。\nシェフ自ら、契約農家に足を運び厳選した食材でイタリアの郷土料理の味を再現し、冬にはジビエやトリュフ、春には野菜を使ったりと季節によってワインのマリアージュを考えています。`}
         </DescriptionItem>
       </Flex>
-    </Box>
+    </Flex>
   );
 };
