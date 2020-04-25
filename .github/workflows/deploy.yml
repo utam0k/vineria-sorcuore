@@ -13,17 +13,13 @@ jobs:
         with:
           node-version: 12
       - name: install
-        run: |
-          yarn install
+        run: yarn install
       - name: lint
-        run: |
-          yarn lint
+        run: yarn lint
       - name: storybook
-        run: |
-          yarn deploy-storybook
+        run: yarn deploy-storybook
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./out
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
