@@ -34,7 +34,6 @@ export const Description = () => {
       position="relative"
       align="center"
       justify="center"
-      width="100%"
       direction="column"
       height={height}
       minHeight="100vh"

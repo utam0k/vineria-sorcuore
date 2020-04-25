@@ -4,24 +4,24 @@ import { Card } from '../components/Card/Card';
 import { ImageModal } from '../molecules/ImageModal/ImageModal';
 import { Layout } from '../templates/Layout/Layout';
 
-// TODO: Migrate google spreadsheet.
+// TODO: Migrate to google spreadsheet.
 import { menus } from '../../data/menus';
 
 const Menu = () => {
   const theme = useTheme();
 
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [modalTitle, setModalTitle] = useState<string>('');
-  const [imageUrl, setImageUrl] = useState<string>();
+  const [imageModal, setImageModal] = useState<{ isOpen: boolean; title: string; imageUrl: string }>({
+    isOpen: false,
+    title: '',
+    imageUrl: '',
+  });
 
-  const onImageClick = useCallback((title: string, imageUrl: string) => {
-    setModalOpen(true);
-    setImageUrl(imageUrl);
-    setModalTitle(title);
+  const onCardClick = useCallback((title: string, imageUrl: string) => {
+    setImageModal({ isOpen: true, title, imageUrl });
   }, []);
 
   const onModalClose = useCallback(() => {
-    setModalOpen(false);
+    setImageModal({ isOpen: false, title: '', imageUrl: '' });
   }, []);
 
   return (
@@ -42,11 +42,11 @@ const Menu = () => {
             price={menu.price}
             imageUrl={menu.imageUrl}
             key={i}
-            onImageClick={onImageClick}
+            onClick={onCardClick}
           />
         ))}
       </Flex>
-      <ImageModal isOpen={isModalOpen} imageUrl={imageUrl} title={modalTitle} onClose={onModalClose} />
+      <ImageModal {...imageModal} onClose={onModalClose} />
     </Layout>
   );
 };
