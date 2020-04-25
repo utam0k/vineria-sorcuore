@@ -3,7 +3,7 @@ import { DescriptionItem } from './DescriptionItem';
 
 export default { title: 'DescriptionItem' };
 
-export const a = () => (
+export const descriptionItem = () => (
   <DescriptionItem
     label="ヴィネリアソルクオーレ"
     title="Vineria Sorcuor"
