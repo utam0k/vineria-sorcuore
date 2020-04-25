@@ -18,31 +18,22 @@ jobs:
 
       - run: 'echo Found it!'
         if: steps.check.outputs.triggered == 'true'
-
-      - if: steps.check.outputs.triggered == 'true'
-        uses: actions/checkout@v1
-        with:
-          ref: ${{ steps.check.outputs.branch }}
       - if: steps.check.outputs.triggered == 'true'
         name: Use Node.js 12
-        branch: ${{ steps.check.outputs.branch }}
         uses: actions/setup-node@v1
         with:
           node-version: 12
       - if: steps.check.outputs.triggered == 'true'
         name: install
-        branch: ${{ steps.check.outputs.branch }}
         run: |
           yarn install
       - if: steps.check.outputs.triggered == 'true'
         name: storybook
-        branch: ${{ steps.check.outputs.branch }}
         run: |
           yarn deploy-storybook
       - if: steps.check.outputs.triggered == 'true'
         name: deploy
         uses: peaceiris/actions-gh-pages@v3
-        branch: ${{ steps.check.outputs.branch }}
         env:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           PUBLISH_BRANCH: gh-pages
