@@ -3,10 +3,11 @@ import { Box } from '@chakra-ui/core';
 
 type Props = {
   imageUrl: string;
-  overlayColor: string;
+  overlayColor?: string;
+  blur?: number;
 };
 
-export const BackgroundImage: React.FC<Props> = ({ imageUrl, overlayColor }) => (
+export const BackgroundImage: React.FC<Props> = ({ imageUrl, overlayColor = '#000000', blur = 0 }) => (
   <>
     <Box
       position="absolute"
@@ -15,8 +16,9 @@ export const BackgroundImage: React.FC<Props> = ({ imageUrl, overlayColor }) => 
       right="0"
       bottom="0"
       zIndex={-2}
-      style={{ filter: 'blur(4px)' }}
-      backgroundPosition="center 80%"
+      style={blur ? { filter: `blur(${blur}px)` } : {}}
+      margin={blur ? `-${blur}px` : 'none'}
+      backgroundPosition="center"
       backgroundSize="cover"
       backgroundRepeat="no-repeat"
       backgroundImage={`url(${imageUrl})`}
@@ -29,8 +31,6 @@ export const BackgroundImage: React.FC<Props> = ({ imageUrl, overlayColor }) => 
       right="0"
       bottom="0"
       zIndex={-1}
-      width="100%"
-      height="100%"
       backgroundColor={overlayColor}
       opacity={0.24}
       pointerEvents="none"
