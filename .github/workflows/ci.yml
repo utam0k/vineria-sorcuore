@@ -1,7 +1,7 @@
 name: ci
 on: [pull_request]
 jobs:
-  lint:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -10,8 +10,30 @@ jobs:
         with:
           node-version: 12
       - name: install
-        run: |
-          yarn install
+        run: yarn install
       - name: lint
-        run: |
-          yarn lint
+        run: yarn lint
+      - uses: technote-space/get-diff-action@v1
+        with:
+          SUFFIX_FILTER: .stories.tsx
+      - name: storybook
+        if: env.GIT_DIFF
+        run: yarn build-storybook
+      - name: deploy
+        if: env.GIT_DIFF
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+      - if: env.GIT_DIFF
+        name: comment
+        uses: actions/github-script@0.9.0
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Deployed to https://www.utam0k.jp/vineria-sorcuore'
+            })
