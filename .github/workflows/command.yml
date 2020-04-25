@@ -30,19 +30,18 @@ jobs:
         run: yarn install
       - if: steps.check.outputs.triggered == 'true'
         name: storybook
-        run: yarn deploy-storybook
+        run: yarn build-storybook
       - if: steps.check.outputs.triggered == 'true'
         name: deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./out
       - if: steps.check.outputs.triggered == 'true'
         name: comment PR
-        uses: unsplash/comment-on-pr@master
         env:
           URL: https://www.utam0k.jp/vineria-sorcuore
+          API_ENDPOINT: ${{ github.event.pull_request.comments_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          msg: 'deploy to ${URL}'
-          check_for_duplicate_msg: false
+        run: |
+          curl -X POST -H "Authorization: token ${GITHUB_TOKEN}" -i ${API_ENDPOINT} -d "`printf '{\"body\":\"deploy to %s\"}' ${URL}`"
