@@ -1,4 +1,4 @@
-name: deploy
+name: storybook deploy
 on:
   push:
     branches:
@@ -15,17 +15,14 @@ jobs:
       - name: install
         run: |
           yarn install
-      - name: build
+      - name: lint
         run: |
-          yarn build
-        env:
-          GITHUB_PAGES: true
-      - name: export
+          yarn lint
+      - name: storybook
         run: |
-          yarn export
-          touch out/.nojekyll
+          yarn deploy-storybook
       - name: deploy
-        uses: peaceiris/actions-gh-pages@v2.3.1
+        uses: peaceiris/actions-gh-pages@v3
         env:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           PUBLISH_BRANCH: gh-pages
