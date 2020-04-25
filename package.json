@@ -11,7 +11,7 @@
     "export": "next export",
     "static": "next build && next export",
     "storybook": "start-storybook --port 3001 --ci",
-    "deploy-storybook": "build-storybook -o out"
+    "build-storybook": "build-storybook -o out"
   },
   "husky": {
     "hooks": {
