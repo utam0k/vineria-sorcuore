@@ -4,7 +4,7 @@ import { BackgroundImage } from '../../atoms/BackgroundImage/BackgroundImage';
 import InstagramEmbed from 'react-instagram-embed';
 
 export const Instagrams = () => (
-  <Box position="relative" width="100%" height="100vh">
+  <Box as="section" position="relative" width="100%" height="100vh">
     <BackgroundImage imageUrl="http://u0u0.net/V499" overlayColor="#5048A1" />
     <Flex justifyContent="space-evenly" alignItems="center" flexWrap="wrap" height="100%">
       {/* TODO: スプレットシートからidを取ってくるようにする */}
