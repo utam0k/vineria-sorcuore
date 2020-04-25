@@ -8,3 +8,10 @@ original: veneria-sorcuore.jimdosite.com
 $ yarn install
 $ yarn dev
 ```
+
+## Storybook
+
+```
+$ yarn install
+$ yarn storybook
+```
