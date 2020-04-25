@@ -15,11 +15,11 @@ jobs:
           trigger: 'deploy-storybook'
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-
       - if: steps.check.outputs.triggered == 'true'
         uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
+        run: |
+          git fetch origin +refs/pull/${{ github.event.issue.number }}/merge
+          git checkout FETCH_HEAD
       - if: steps.check.outputs.triggered == 'true'
         name: Use Node.js 12
         uses: actions/setup-node@v1
