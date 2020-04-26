@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, Heading, useTheme, Button, Link } from '@chakra-ui/core';
+import { Box, Text, Heading, useTheme, Button, Link, Icon } from '@chakra-ui/core';
 import NextLink from 'next/link';
 
 type Props = {
@@ -44,8 +44,16 @@ export const DescriptionItem: React.FC<Props> = ({ label, title, link, children 
         {children}
       </Text>
       {link.external ? (
-        <Link href={link.url}>
-          <Button variantColor="teal">{link.label}</Button>
+        <Link
+          href={link.url}
+          _hover={{
+            textDecoration: 'none',
+          }}
+        >
+          <Button variantColor="teal">
+            {link.label}
+            <Icon name="external-link" mx="2px" />
+          </Button>
         </Link>
       ) : (
         <NextLink href={link.url}>
