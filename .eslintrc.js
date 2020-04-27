@@ -1,5 +1,6 @@
 module.exports = {
   env: {
+    node: true,
     browser: true,
     es6: true,
   },
@@ -29,6 +30,6 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
   },
 };
