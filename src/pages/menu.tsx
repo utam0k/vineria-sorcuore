@@ -3,12 +3,17 @@ import { Heading, Flex, Text, Box, useTheme } from '@chakra-ui/core';
 import { Card } from '../components/Card/Card';
 import { ImageModal } from '../molecules/ImageModal/ImageModal';
 import { Layout } from '../templates/Layout/Layout';
+import useSWR from 'swr';
+import fetch from 'unfetch';
 
-// TODO: Migrate to google spreadsheet.
-import { menus } from '../../data/menus';
+import { Menu as TMenu } from '../models/menu';
+
+const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 const Menu = () => {
   const theme = useTheme();
+
+  const { data: menus } = useSWR<TMenu[]>(process.env.menuUrl || '', fetcher);
 
   const [imageModal, setImageModal] = useState<{ isOpen: boolean; title: string; imageUrl: string }>({
     isOpen: false,
@@ -35,16 +40,17 @@ const Menu = () => {
         </Text>
       </Box>
       <Flex align="center" justify="center" flexWrap="wrap">
-        {menus.map((menu, i) => (
-          <Card
-            title={menu.title}
-            description={menu.description}
-            price={menu.price}
-            imageUrl={menu.imageUrl}
-            key={i}
-            onClick={onCardClick}
-          />
-        ))}
+        {menus &&
+          menus.map((menu, i) => (
+            <Card
+              title={menu.name}
+              description={menu.description}
+              price={menu.price}
+              imageUrl={menu.image}
+              key={i}
+              onClick={onCardClick}
+            />
+          ))}
       </Flex>
       <ImageModal {...imageModal} onClose={onModalClose} />
     </Layout>
