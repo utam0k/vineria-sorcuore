@@ -26,6 +26,7 @@ export const Card: React.FC<Props> = ({ imageUrl, imageAlt, title, price, descri
       rounded="lg"
       cursor="pointer"
       onClick={onCardClick}
+      marginBottom={theme.space[4]}
     >
       <Image alt={imageAlt ? imageAlt : title} src={imageUrl} width="sm" height="2xs" objectFit="cover" />
       <Box p="6" height={theme.sizes[40]}>
