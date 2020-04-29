@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Heading, Flex, Text, Box, useTheme } from '@chakra-ui/core';
-import { Card, CardSkeleton } from '../components/Card/Card';
+import { Card } from '../components/Card/Card';
+import { CardSkeleton } from '../components/Card/CardSkeleton';
 import { ImageModal } from '../molecules/ImageModal/ImageModal';
 import { Layout } from '../templates/Layout/Layout';
 import { useWindowSize } from '../utils/hooks/useWindowSize';
