@@ -1,8 +1,11 @@
 import React, { useState, useCallback } from 'react';
 import { Heading, Flex, Text, Box, useTheme } from '@chakra-ui/core';
 import { Card } from '../components/Card/Card';
+import { CardSkeleton } from '../components/Card/CardSkeleton';
 import { ImageModal } from '../molecules/ImageModal/ImageModal';
 import { Layout } from '../templates/Layout/Layout';
+import { useWindowSize } from '../utils/hooks/useWindowSize';
+
 import useSWR from 'swr';
 import fetch from 'unfetch';
 
@@ -12,6 +15,7 @@ const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 const Menu = () => {
   const theme = useTheme();
+  const windowSize = useWindowSize();
 
   const { data: menus } = useSWR<TMenu[]>(process.env.menuUrl || '', fetcher);
 
@@ -29,6 +33,12 @@ const Menu = () => {
     setImageModal({ isOpen: false, title: '', imageUrl: '' });
   }, []);
 
+  const NumCardsInOneLine = (width: number) => {
+    // TODO: get max width of a Card component automatically.
+    const cardMaxWidth = 384;
+    return cardMaxWidth > width ? 1 : Math.floor(width / cardMaxWidth);
+  };
+
   return (
     <Layout>
       <Box as="header" textAlign="center">
@@ -40,17 +50,20 @@ const Menu = () => {
         </Text>
       </Box>
       <Flex align="center" justify="center" flexWrap="wrap">
-        {menus &&
-          menus.map((menu, i) => (
-            <Card
-              title={menu.name}
-              description={menu.description}
-              price={menu.price}
-              imageUrl={menu.image}
-              key={i}
-              onClick={onCardClick}
-            />
-          ))}
+        {menus
+          ? menus.map((menu, i) => (
+              <Card
+                title={menu.name}
+                description={menu.description}
+                price={menu.price}
+                imageUrl={menu.image}
+                key={i}
+                onClick={onCardClick}
+              />
+            ))
+          : [...new Array(windowSize.width ? NumCardsInOneLine(windowSize.width) : 1)].map((_, i) => (
+              <CardSkeleton key={i} />
+            ))}
       </Flex>
       <ImageModal {...imageModal} onClose={onModalClose} />
     </Layout>
