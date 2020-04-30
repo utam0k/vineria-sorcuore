@@ -1,9 +1,21 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Heading, Flex, useTheme, Button } from '@chakra-ui/core';
+import {
+  Heading,
+  Flex,
+  useTheme,
+  Button,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverArrow,
+  PopoverBody,
+  Popover,
+  List,
+  ListItem,
+} from '@chakra-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { SideMenu } from '../../molecules/SideMenu/SideMenu';
-import { LinkItem } from '../../atoms/LinkItem/LinkItem';
+import { HeaderLinkItem } from './HeaderLinkItem';
 
 type Props = {
   position?: 'fixed' | 'sticky';
@@ -63,65 +75,33 @@ export const Header: React.FC<Props> = ({ position = 'sticky', needGradation = f
         Vineria Sorcuor
       </Heading>
       <Flex display={['none', 'none', 'flex', 'flex']}>
-        <LinkItem
-          href="/"
-          fontWeight="bold"
-          border="2px solid"
-          borderColor="green.500"
-          borderRadius="24px"
-          color="green.500"
-          _hover={{
-            color: 'white',
-            backgroundColor: 'green.500',
-          }}
-        >
-          ホーム
-        </LinkItem>
-        <LinkItem
-          href="/menu"
-          marginLeft="8px"
-          fontWeight="bold"
-          border="2px solid"
-          borderColor="green.500"
-          borderRadius="24px"
-          color="green.500"
-          _hover={{
-            color: 'white',
-            backgroundColor: 'green.500',
-          }}
-        >
-          メニュー
-        </LinkItem>
-        <LinkItem
-          href="/access"
-          marginLeft="8px"
-          fontWeight="bold"
-          border="2px solid"
-          borderColor="green.500"
-          borderRadius="24px"
-          color="green.500"
-          _hover={{
-            color: 'white',
-            backgroundColor: 'green.500',
-          }}
-        >
+        <HeaderLinkItem href="/">ホーム</HeaderLinkItem>
+        <Popover trigger="hover" usePortal>
+          <PopoverTrigger>
+            <HeaderLinkItem href="/menu" marginLeft={theme.space[4]}>
+              メニュー
+            </HeaderLinkItem>
+          </PopoverTrigger>
+          <PopoverContent width={theme.sizes[48]} zIndex={theme.zIndices.popover} _focus={{ outline: 'none' }}>
+            <PopoverArrow />
+            <PopoverBody>
+              <List styleType="none" spacing={theme.space[2]} paddingY={theme.space[2]}>
+                <ListItem>
+                  <HeaderLinkItem href="/menu/course">コース</HeaderLinkItem>
+                </ListItem>
+                <ListItem>
+                  <HeaderLinkItem href="/menu/a-la-carte">アラカルト</HeaderLinkItem>
+                </ListItem>
+              </List>
+            </PopoverBody>
+          </PopoverContent>
+        </Popover>
+        <HeaderLinkItem href="/access" marginLeft={theme.space[4]}>
           アクセス
-        </LinkItem>
-        <LinkItem
-          href="/reservation"
-          marginLeft="8px"
-          fontWeight="bold"
-          border="2px solid"
-          borderColor="green.500"
-          borderRadius="24px"
-          color="green.500"
-          _hover={{
-            color: 'white',
-            backgroundColor: 'green.500',
-          }}
-        >
+        </HeaderLinkItem>
+        <HeaderLinkItem href="/reservation" marginLeft={theme.space[4]}>
           ご予約
-        </LinkItem>
+        </HeaderLinkItem>
       </Flex>
       <Button
         display={['block', 'block', 'none', 'none']}
