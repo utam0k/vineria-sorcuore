@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Heading, Text, Tabs, TabList, Tab, TabPanels, TabPanel, Flex, Button, Link, useTheme } from '@chakra-ui/core';
 
 import { Layout } from '../templates/Layout/Layout';
@@ -11,15 +11,21 @@ const Home = () => {
   const theme = useTheme();
   const { width } = useWindowSize();
 
-  const orientation = useMemo(() => {
+  const [orientation, setOrientation] = useState<'horizontal' | 'vertical'>('horizontal');
+
+  useEffect(() => {
     // TODO: Get breakpoint from theme
     const breakpoint = 624;
-    if (!width) return 'horizontal';
-
-    if (width > breakpoint) {
-      return 'horizontal';
+    if (!width) {
+      setOrientation('horizontal');
+      return;
     }
-    return 'vertical';
+
+    if (width < breakpoint) {
+      setOrientation('vertical');
+      return;
+    }
+    setOrientation('horizontal');
   }, [width]);
 
   return (
@@ -56,7 +62,13 @@ const Home = () => {
         }}
         reverse={true}
       >
-        <Tabs marginTop={theme.space[8]} variant="enclosed" variantColor="purple" orientation={orientation}>
+        <Tabs
+          defaultIndex={0}
+          marginTop={theme.space[8]}
+          variant="enclosed"
+          variantColor="purple"
+          orientation={orientation}
+        >
           <TabList>
             <Tab _focus={{ outline: 'none' }} color={theme.colors.white}>
               スパークリングワイン
