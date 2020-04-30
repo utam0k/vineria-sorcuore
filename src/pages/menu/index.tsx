@@ -1,15 +1,15 @@
 import React, { useState, useCallback } from 'react';
 import { Heading, Flex, Text, Box, useTheme } from '@chakra-ui/core';
-import { Card } from '../components/Card/Card';
-import { CardSkeleton } from '../components/Card/CardSkeleton';
-import { ImageModal } from '../molecules/ImageModal/ImageModal';
-import { Layout } from '../templates/Layout/Layout';
-import { useWindowSize } from '../utils/hooks/useWindowSize';
+import { Card } from '../../components/Card/Card';
+import { CardSkeleton } from '../../components/Card/CardSkeleton';
+import { ImageModal } from '../../molecules/ImageModal/ImageModal';
+import { Layout } from '../../templates/Layout/Layout';
+import { useWindowSize } from '../../utils/hooks/useWindowSize';
 
 import useSWR from 'swr';
 import fetch from 'unfetch';
 
-import { Menu as TMenu } from '../models/menu';
+import { Menu as TMenu } from '../../models/menu';
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
