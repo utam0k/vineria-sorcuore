@@ -1,5 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Heading, Text, Tabs, TabList, Tab, TabPanels, TabPanel, Flex, Button, Link, useTheme } from '@chakra-ui/core';
+import {
+  Box,
+  Heading,
+  Text,
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+  Flex,
+  Button,
+  Link,
+  useTheme,
+} from '@chakra-ui/core';
 
 import { Layout } from '../templates/Layout/Layout';
 import { Description } from '../organisms/Description/Description';
@@ -7,7 +20,7 @@ import { Instagrams } from '../organisms/Instagrams/Instagrams';
 import { Section } from '../organisms/Section/Section';
 import { useWindowSize } from '../utils/hooks/useWindowSize';
 
-const Home = () => {
+export const Home = () => {
   const theme = useTheme();
   const { width } = useWindowSize();
 
@@ -44,12 +57,37 @@ const Home = () => {
       >
         <Flex marginTop={theme.space[8]} align="center" justify="center">
           <Link
-            href={`access`}
+            href={'/menu'}
             _hover={{
               textDecoration: 'none',
             }}
           >
-            <Button variantColor="teal">アクセス</Button>
+            <Button variantColor="teal">メニューを見る</Button>
+          </Link>
+        </Flex>
+      </Section>
+      <Section
+        reverse={true}
+        title="Concept"
+        text={
+          '両国駅から徒歩８分と少し離れた隠れ家的イタリアンです。\nカウンターを中心とした広々としたお席で､皆様にゆっくりとお食事を楽しんで頂ける空間となっております。\n夜９時以降はふらっと、軽くつまんでワインを飲みたいお客様の為にもワインバーとして立ち飲みスペースも設けております。\nお酒が飲み足りない方や帰り道の方もぜひ、お気軽にお立ち寄りください！'
+        }
+        image={{
+          url:
+            'https://jimdo-storage.freetls.fastly.net/image/58541700/a859a20a-51e0-411d-a2f0-68d07866595a.jpg?format=pjpg&quality=80&auto=webp&disable=upscale',
+          alt: 'about',
+        }}
+      >
+        <Flex marginTop={theme.space[8]} align="center" justify="center">
+          <Link
+            href={'/access'}
+            _hover={{
+              textDecoration: 'none',
+            }}
+          >
+            <Button variantColor="orange" variant="solid">
+              アクセス
+            </Button>
           </Link>
         </Flex>
       </Section>
@@ -60,53 +98,78 @@ const Home = () => {
           url: 'http://u0u0.net/V499',
           alt: 'about',
         }}
-        reverse={true}
       >
         <Tabs
           defaultIndex={0}
           marginTop={theme.space[8]}
-          variant="enclosed"
-          variantColor="purple"
+          variant="solid-rounded"
+          variantColor="green"
           orientation={orientation}
         >
           <TabList>
-            <Tab _focus={{ outline: 'none' }} color={theme.colors.white}>
-              スパークリングワイン
-            </Tab>
-            <Tab _focus={{ outline: 'none' }} color={theme.colors.white}>
-              白ワイン
-            </Tab>
-            <Tab _focus={{ outline: 'none' }} color={theme.colors.white}>
-              赤ワイン
-            </Tab>
+            <Tab _focus={{ outline: 'none' }}>スパークリングワイン</Tab>
+            <Tab _focus={{ outline: 'none' }}>白ワイン</Tab>
+            <Tab _focus={{ outline: 'none' }}>赤ワイン</Tab>
           </TabList>
-          <TabPanels minHeight={theme.sizes[40]} color={theme.colors.white}>
+          <TabPanels minHeight={theme.sizes[40]}>
             <TabPanel>
               <Flex justify="space-between" marginTop={theme.space[3]}>
-                <Heading as="h4" size="sm">
-                  ドラピエ カルトドール (フランス・シャンパーニュ）
+                <Heading as="i" fontSize="md" fontWeight="md">
+                  ドラピエ カルトドール (フランス・シャンパーニュ)
                 </Heading>
-                <Text>￥8800</Text>
+                <Text fontSize="sm">￥8800</Text>
               </Flex>
             </TabPanel>
             <TabPanel>
               <Flex justify="space-between" marginTop={theme.space[3]}>
-                <Heading as="h4" size="sm">
+                <Heading as="i" fontSize="md" fontWeight="md">
                   ソ アヴェ (イタリア・ヴェネト)
                 </Heading>
-                <Text>￥4800</Text>
+                <Text fontSize="sm">￥4800</Text>
               </Flex>
             </TabPanel>
             <TabPanel>
               <Flex justify="space-between" marginTop={theme.space[3]}>
-                <Heading as="h4" size="sm">
-                  キャンティ リゼルヴァ (イタリア・トスカーナ )
+                <Heading as="i" fontSize="md" fontWeight="md">
+                  キャンティ リゼルヴァ (イタリア・トスカーナ)
                 </Heading>
-                <Text>￥4800</Text>
+                <Text fontSize="sm">￥4800</Text>
               </Flex>
             </TabPanel>
           </TabPanels>
         </Tabs>
+      </Section>
+      <Section
+        title="Lunch"
+        reverse={true}
+        text={
+          'イタリアで修行を重ねたシェフによる、イタリアンビュッフェ。（お持ち帰り弁当も可）イタリアの塩、エクストラヴァージンオイルで調理したオードブルとパスタが１０種類以上！！\nテイクアウト弁当もご用意しておりますのでお仕事の休憩中にもオススメです。（セルフサービス）イートインも設けております。'
+        }
+        image={{
+          url:
+            'https://jimdo-storage.freetls.fastly.net/image/75731262/55fee928-e220-4128-90c1-f7b19544ce20.jpg?format=pjpg&quality=80&auto=webp&disable=upscale',
+          alt: 'lunch',
+        }}
+      >
+        <Box marginTop={theme.space[8]}>
+          {[
+            { name: 'ブッフェ45分', price: '1,100' },
+            { name: 'ブッフェ75分', price: '1,650' },
+            { name: '詰め放題・お持ち帰り弁当', price: '1,100' },
+            { name: '飲み放題ワイン45分', price: '1,000' },
+          ].map((item) => (
+            <>
+              <Flex justify="space-between" marginTop={theme.space[1]}>
+                <Heading fontSize="md" fontWeight="md" color={theme.colors.white}>
+                  {item.name}
+                </Heading>{' '}
+                <Text fontSize="md" color={theme.colors.white}>
+                  {item.price}円
+                </Text>
+              </Flex>
+            </>
+          ))}
+        </Box>
       </Section>
       <Instagrams />
     </Layout>
