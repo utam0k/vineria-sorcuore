@@ -2,18 +2,18 @@ import React, { useMemo } from 'react';
 import { Heading, Text, Flex, Box, Image, useTheme } from '@chakra-ui/core';
 
 type Props = {
+  title: string;
+  text?: string;
   image: {
     url: string;
     alt: string;
   };
-  reverse?: boolean;
-  backgroundColor?: string;
   color?: string;
-  title: string;
-  text?: string;
+  backgroundColor?: string;
+  reverse?: boolean;
 };
 
-export const Section: React.FC<Props> = ({ children, image, title, text, reverse = false, backgroundColor, color }) => {
+export const Section: React.FC<Props> = ({ children, title, text, image, reverse = false, backgroundColor, color }) => {
   const theme = useTheme();
 
   const bc = useMemo(() => {
@@ -30,6 +30,55 @@ export const Section: React.FC<Props> = ({ children, image, title, text, reverse
     return color;
   }, [color]);
 
+  const imageBox = useMemo(
+    () => (
+      <Flex
+        width={theme.sizes.lg}
+        marginBottom={[theme.space[8], theme.space[8], 0, 0]}
+        justify="center"
+        align="center"
+      >
+        <Image
+          alt={image.alt}
+          width="100%"
+          height={[theme.sizes[40], '100%', '100%', '100%']}
+          objectFit="cover"
+          src={image.url}
+        />
+      </Flex>
+    ),
+    [image, theme]
+  );
+
+  const textBox = useMemo(
+    () => (
+      <Box
+        width={theme.sizes.lg}
+        marginLeft={!reverse ? [0, 0, theme.space[16], theme.space[16]] : 0}
+        marginRight={reverse ? [0, 0, theme.space[16], theme.space[16]] : 0}
+      >
+        <Heading
+          textAlign="center"
+          fontSize={[theme.fontSizes['3xl'], theme.fontSizes['3xl'], theme.fontSizes['5xl'], theme.fontSizes['5xl']]}
+          color={textColor}
+          fontWeight="normal"
+          marginBottom={theme.space[4]}
+        >
+          {title}
+        </Heading>
+        {text && (
+          <Text color={textColor} whiteSpace="pre-wrap" overflowWrap="break-word" wordBreak="break-all">
+            {text}
+          </Text>
+        )}
+        {children}
+      </Box>
+    ),
+    [title, text, children, textColor, theme]
+  );
+
+  const contents = useMemo(() => (reverse ? [textBox, imageBox] : [imageBox, textBox]), [reverse, imageBox, textBox]);
+
   return (
     <Flex
       as="section"
@@ -42,71 +91,7 @@ export const Section: React.FC<Props> = ({ children, image, title, text, reverse
       paddingY={theme.space[24]}
       backgroundColor={bc}
     >
-      {reverse ? (
-        <>
-          <Box width={theme.sizes.lg} marginRight={[0, 0, theme.space[16], theme.space[16]]}>
-            <Heading
-              textAlign="center"
-              fontSize={[
-                theme.fontSizes['3xl'],
-                theme.fontSizes['3xl'],
-                theme.fontSizes['5xl'],
-                theme.fontSizes['5xl'],
-              ]}
-              color={textColor}
-              fontWeight="normal"
-              marginBottom={theme.space[4]}
-            >
-              {title}
-            </Heading>
-            <Text color={textColor} whiteSpace="pre-wrap" overflowWrap="break-word" wordBreak="break-all">
-              {text}
-            </Text>
-            {children}
-          </Box>
-          <Flex width={theme.sizes.lg} marginBottom={theme.space[8]} justify="center" align="center">
-            <Image
-              alt={image.alt}
-              width="100%"
-              height={[theme.sizes[40], '100%', '100%', '100%']}
-              objectFit="cover"
-              src={image.url}
-            />
-          </Flex>
-        </>
-      ) : (
-        <>
-          <Flex width={theme.sizes.lg} marginBottom={theme.space[8]} justify="center" align="center">
-            <Image
-              alt={image.alt}
-              width="100%"
-              height={[theme.sizes[40], '100%', '100%', '100%']}
-              objectFit="cover"
-              src={image.url}
-            />
-          </Flex>
-          <Box width={theme.sizes.lg} marginLeft={[0, 0, theme.space[16], theme.space[16]]}>
-            <Heading
-              textAlign="center"
-              fontSize={[
-                theme.fontSizes['3xl'],
-                theme.fontSizes['3xl'],
-                theme.fontSizes['5xl'],
-                theme.fontSizes['5xl'],
-              ]}
-              color="#4c4c4c"
-              fontWeight="normal"
-              marginBottom={theme.space[4]}
-            >
-              {title}
-            </Heading>
-            <Text color="#555555" whiteSpace="pre-wrap" overflowWrap="break-word" wordBreak="break-all">
-              {text}
-            </Text>
-            {children}
-          </Box>
-        </>
-      )}
+      {contents}
     </Flex>
   );
 };
