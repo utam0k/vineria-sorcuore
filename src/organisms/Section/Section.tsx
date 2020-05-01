@@ -32,7 +32,12 @@ export const Section: React.FC<Props> = ({ children, title, text, image, reverse
 
   const imageBox = useMemo(
     () => (
-      <Flex width={theme.sizes.lg} marginBottom={theme.space[8]} justify="center" align="center">
+      <Flex
+        width={theme.sizes.lg}
+        marginBottom={[theme.space[8], theme.space[8], 0, 0]}
+        justify="center"
+        align="center"
+      >
         <Image
           alt={image.alt}
           width="100%"
