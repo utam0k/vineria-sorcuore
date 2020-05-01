@@ -20,7 +20,7 @@ import { Instagrams } from '../organisms/Instagrams/Instagrams';
 import { Section } from '../organisms/Section/Section';
 import { useWindowSize } from '../utils/hooks/useWindowSize';
 
-const Home = () => {
+export const Home = () => {
   const theme = useTheme();
   const { width } = useWindowSize();
 
