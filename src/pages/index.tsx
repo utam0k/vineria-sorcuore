@@ -115,7 +115,7 @@ export const Home = () => {
             <TabPanel>
               <Flex justify="space-between" marginTop={theme.space[3]}>
                 <Heading as="i" fontSize="md" fontWeight="md">
-                  ドラピエ カルトドール (フランス・シャンパーニュ）
+                  ドラピエ カルトドール (フランス・シャンパーニュ)
                 </Heading>
                 <Text fontSize="sm">￥8800</Text>
               </Flex>
@@ -131,7 +131,7 @@ export const Home = () => {
             <TabPanel>
               <Flex justify="space-between" marginTop={theme.space[3]}>
                 <Heading as="i" fontSize="md" fontWeight="md">
-                  キャンティ リゼルヴァ (イタリア・トスカーナ )
+                  キャンティ リゼルヴァ (イタリア・トスカーナ)
                 </Heading>
                 <Text fontSize="sm">￥4800</Text>
               </Flex>
