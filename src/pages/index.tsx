@@ -57,7 +57,7 @@ export const Home = () => {
       >
         <Flex marginTop={theme.space[8]} align="center" justify="center">
           <Link
-            href={`menu`}
+            href={'/menu'}
             _hover={{
               textDecoration: 'none',
             }}
@@ -80,7 +80,7 @@ export const Home = () => {
       >
         <Flex marginTop={theme.space[8]} align="center" justify="center">
           <Link
-            href={`access`}
+            href={'/access'}
             _hover={{
               textDecoration: 'none',
             }}
