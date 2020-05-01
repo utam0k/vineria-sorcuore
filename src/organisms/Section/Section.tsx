@@ -52,7 +52,11 @@ export const Section: React.FC<Props> = ({ children, title, text, image, reverse
 
   const textBox = useMemo(
     () => (
-      <Box width={theme.sizes.lg} marginRight={[0, 0, theme.space[16], theme.space[16]]}>
+      <Box
+        width={theme.sizes.lg}
+        marginLeft={!reverse ? [0, 0, theme.space[16], theme.space[16]] : 0}
+        marginRight={reverse ? [0, 0, theme.space[16], theme.space[16]] : 0}
+      >
         <Heading
           textAlign="center"
           fontSize={[theme.fontSizes['3xl'], theme.fontSizes['3xl'], theme.fontSizes['5xl'], theme.fontSizes['5xl']]}
