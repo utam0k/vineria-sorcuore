@@ -44,7 +44,7 @@ export const Header: React.FC<Props> = ({ position = 'sticky', needGradation = f
       as="nav"
       background={backgroundColor}
       width="100vw"
-      px={theme.space[10]}
+      px={[theme.space[2], theme.space[2], theme.space[10], theme.space[10]]}
       py={[theme.space[2], theme.space[2], theme.space[5], theme.space[5]]}
       alignItems="center"
       justifyContent="center"
