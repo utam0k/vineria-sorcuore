@@ -19,7 +19,7 @@ export const Head: React.FC<Props> = ({ title, description, keywords = [], image
       <meta key="og:title" property="og:title" content={title} />
       <meta key="og:site_name" property="og:site_name" content={SITE_NAME} />
       {description && <meta key="og:description" property="og:description" content={description} />}
-      {keywords.length > 0 && <meta key="keywords" name="keywords" content={keywords.join(', ')} />}
+      {keywords.length > 0 && <meta key="keywords" name="keywords" content={keywords.join(',')} />}
       <meta key="og:type" property="og:type" content="website" />
       {imageUrl && <meta key="og:image" property="og:image" content={imageUrl} />}
 
