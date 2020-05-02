@@ -93,6 +93,21 @@ export const Header: React.FC<Props> = ({ position = 'sticky', needGradation = f
           メニュー
         </LinkItem>
         <LinkItem
+          href="/access"
+          marginLeft="8px"
+          fontWeight="bold"
+          border="2px solid"
+          borderColor="green.500"
+          borderRadius="24px"
+          color="green.500"
+          _hover={{
+            color: 'white',
+            backgroundColor: 'green.500',
+          }}
+        >
+          アクセス
+        </LinkItem>
+        <LinkItem
           href="/reservation"
           marginLeft="8px"
           fontWeight="bold"
