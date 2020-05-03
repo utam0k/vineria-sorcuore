@@ -114,7 +114,9 @@ const ALaCarteMenuPage = () => {
       <Heading textAlign="center" marginTop={theme.space[8]}>
         アラカルトメニュー
       </Heading>
-      <Text textAlign="center">※仕入れ状況、時期によってご用意出来ない場合がございます。</Text>
+      <Text textAlign="center" fontSize={theme.fontSizes.xs}>
+        ※仕入れ状況、時期によってご用意出来ない場合がございます。
+      </Text>
       <Section
         image={{
           url: 'https://jimdo-storage.freetls.fastly.net/image/59075570/37c6bc09-9243-421b-887c-6db02035fbca.vibe.jpg',
