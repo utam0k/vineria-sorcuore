@@ -9,25 +9,27 @@ const StoreInfo = () => {
     <Layout>
       <Heading
         textAlign="center"
-        fontSize={[theme.fontSizes['3xl'], theme.fontSizes['3xl'], theme.fontSizes['5xl'], theme.fontSizes['5xl']]}
-        marginY={[theme.space[4], theme.space[4], theme.space[8], theme.space[8]]}
+        fontSize={[theme.fontSizes['3xl'], theme.fontSizes['3xl'], theme.fontSizes['3xl'], theme.fontSizes['5xl']]}
+        marginY={[theme.space[4], theme.space[4], theme.space[4], theme.space[8]]}
         fontWeight="normal"
       >
         店舗情報
       </Heading>
       <Flex
-        paddingY={[theme.space[0], theme.space[0], theme.space[4], theme.space[4]]}
+        paddingY={[theme.space[0], theme.space[0], theme.space[0], theme.space[4]]}
         justify="center"
-        flexWrap="wrap"
+        // flexWrap="wrap"
+        flexWrap={['wrap', 'wrap', 'wrap', 'nowrap']}
+        paddingX={theme.space[1]}
       >
         <Box
           width={theme.sizes.lg}
-          marginRight={[theme.space[8], theme.space[8], theme.space[16], theme.space[16]]}
-          marginLeft={[theme.space[8], theme.space[8], 0, 0]}
-          marginBottom={[theme.space[8], theme.space[8], 0, 0]}
+          marginRight={[theme.space[8], theme.space[8], theme.space[8], theme.space[16]]}
+          marginLeft={[theme.space[8], theme.space[8], theme.space[8], 0]}
+          marginBottom={[theme.space[8], theme.space[8], theme.space[8], 0]}
           marginTop={theme.space[4]}
         >
-          <SimpleGrid columns={[1, 1, 2, 2]} spacingX={6} spacingY={[0, 0, 4, 4]}>
+          <SimpleGrid columns={[1, 1, 1, 2]} spacingX={6} spacingY={[0, 0, 0, 4]}>
             {[
               {
                 name: '住所',
@@ -43,20 +45,20 @@ const StoreInfo = () => {
               },
             ].map((item) => (
               <>
-                <Flex borderRight={['none', 'none', 'solid', 'solid']}>
+                <Flex borderRight={['none', 'none', 'none', 'solid']}>
                   <Heading
-                    fontSize={['lg', 'lg', 'md', 'md']}
-                    fontWeight={['2xl', '2xl', 'md', 'md']}
+                    fontSize={['lg', 'lg', 'lg', 'md']}
+                    fontWeight={['2xl', '2xl', '2xl', 'md']}
                     width="100%"
-                    borderBottom={['solid', 'solid', 'none', 'none']}
+                    borderBottom={['solid', 'solid', 'solid', 'none']}
                     marginBottom={[theme.space[2], theme.space[2], 0, 0]}
                   >
                     {item.name}
                   </Heading>
                 </Flex>
                 <Text
-                  marginLeft={[theme.space[4], theme.space[4], 0, 0]}
-                  marginBottom={[theme.space[6], theme.space[6], 0, 0]}
+                  marginLeft={[theme.space[4], theme.space[4], theme.space[4], 0]}
+                  marginBottom={[theme.space[6], theme.space[6], theme.space[6], 0]}
                   whiteSpace="pre-wrap"
                   overflowWrap="break-word"
                   wordBreak="break-all"
@@ -69,8 +71,8 @@ const StoreInfo = () => {
         </Box>
         <Box
           width={theme.sizes.lg}
-          height={[theme.sizes[48], theme.sizes[48], theme.sizes.md, theme.sizes.md]}
-          marginBottom={[theme.space[8], theme.space[8], 0, 0]}
+          height={[theme.sizes[48], theme.sizes[48], theme.sizes[48], theme.sizes.md]}
+          marginBottom={[theme.space[8], theme.space[8], theme.space[8], 0]}
         >
           <iframe
             frameBorder="0"
