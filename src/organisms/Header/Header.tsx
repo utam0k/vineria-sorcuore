@@ -96,8 +96,8 @@ export const Header: React.FC<Props> = ({ position = 'sticky', needGradation = f
             </PopoverBody>
           </PopoverContent>
         </Popover>
-        <HeaderLinkItem href="/access" marginLeft={theme.space[4]}>
-          アクセス
+        <HeaderLinkItem href="/store-information" marginLeft={theme.space[4]}>
+          店舗情報
         </HeaderLinkItem>
         <HeaderLinkItem href="/reservation" marginLeft={theme.space[4]}>
           ご予約
