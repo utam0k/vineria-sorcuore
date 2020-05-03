@@ -77,8 +77,6 @@ export const Section: React.FC<Props> = ({ children, title, text, image, reverse
     [title, text, children, textColor, theme]
   );
 
-  const contents = useMemo(() => (reverse ? [textBox, imageBox] : [imageBox, textBox]), [reverse, imageBox, textBox]);
-
   return (
     <Flex
       as="section"
@@ -91,7 +89,17 @@ export const Section: React.FC<Props> = ({ children, title, text, image, reverse
       paddingY={theme.space[24]}
       backgroundColor={bc}
     >
-      {contents}
+      {reverse ? (
+        <>
+          {textBox}
+          {imageBox}
+        </>
+      ) : (
+        <>
+          {imageBox}
+          {textBox}
+        </>
+      )}
     </Flex>
   );
 };
