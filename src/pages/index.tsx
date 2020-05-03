@@ -162,7 +162,7 @@ export const Home = () => {
               <Flex justify="space-between" marginTop={theme.space[1]}>
                 <Heading fontSize="md" fontWeight="md" color={theme.colors.white}>
                   {item.name}
-                </Heading>{' '}
+                </Heading>
                 <Text fontSize="md" color={theme.colors.white}>
                   {item.price}円
                 </Text>
