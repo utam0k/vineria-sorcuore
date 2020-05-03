@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { SimpleGrid, Text, Heading, Flex, Box, useTheme } from '@chakra-ui/core';
 
 import { Layout } from '../templates/Layout/Layout';
@@ -42,8 +42,8 @@ const StoreInfo = () => {
                 desc:
                   '月～土曜\n18時～24時\n23時最終入店 フードL.O. 22時\n\n日曜日\n18時～21時  21時最終入店\n\n月曜日 不定休 有り',
               },
-            ].map((item) => (
-              <>
+            ].map((item, i) => (
+              <Fragment key={i}>
                 <Flex borderRight={['none', 'none', 'none', 'solid']}>
                   <Heading
                     fontSize={['lg', 'lg', 'lg', 'md']}
@@ -64,7 +64,7 @@ const StoreInfo = () => {
                 >
                   {item.desc}
                 </Text>
-              </>
+              </Fragment>
             ))}
           </SimpleGrid>
         </Box>
