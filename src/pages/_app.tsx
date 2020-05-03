@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           }
 
           body {
-            font-family: 'Libre Baskerville', 'M PLUS 1p', sans-serif;
+            font-family: 'Questrial', 'Libre Baskerville', 'M PLUS 1p', sans-serif;
             background-color: #fafafa;
             overflow-x: hidden;
           }
