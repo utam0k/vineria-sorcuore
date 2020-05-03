@@ -18,7 +18,6 @@ const StoreInfo = () => {
       <Flex
         paddingY={[theme.space[0], theme.space[0], theme.space[0], theme.space[4]]}
         justify="center"
-        // flexWrap="wrap"
         flexWrap={['wrap', 'wrap', 'wrap', 'nowrap']}
         paddingX={theme.space[1]}
       >
