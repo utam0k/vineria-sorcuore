@@ -18,7 +18,7 @@ export const Section: React.FC<Props> = ({ children, title, text, image, reverse
 
   const bc = useMemo(() => {
     if (reverse) {
-      return backgroundColor || theme.colors.green[500];
+      return backgroundColor || theme.colors.green[700];
     }
     return backgroundColor;
   }, [backgroundColor]);
