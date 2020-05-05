@@ -22,6 +22,7 @@ import { useWindowSize } from '../utils/hooks/useWindowSize';
 
 export const Home = () => {
   const theme = useTheme();
+
   const { width } = useWindowSize();
 
   const [orientation, setOrientation] = useState<'horizontal' | 'vertical'>('horizontal');
@@ -62,7 +63,9 @@ export const Home = () => {
               textDecoration: 'none',
             }}
           >
-            <Button variantColor="teal">メニューを見る</Button>
+            <Button variantColor="teal" variant="outline">
+              メニューを見る
+            </Button>
           </Link>
         </Flex>
       </Section>
@@ -85,7 +88,7 @@ export const Home = () => {
               textDecoration: 'none',
             }}
           >
-            <Button variantColor="orange" variant="solid">
+            <Button variantColor="yellow" variant="outline">
               アクセス
             </Button>
           </Link>
