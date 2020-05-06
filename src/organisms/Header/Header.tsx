@@ -92,6 +92,9 @@ export const Header: React.FC<Props> = ({ position = 'sticky', needGradation = f
                 <ListItem>
                   <HeaderLinkItem href="/menu/a-la-carte">アラカルト</HeaderLinkItem>
                 </ListItem>
+                <ListItem>
+                  <HeaderLinkItem href="/menu/takeout">テイクアウト</HeaderLinkItem>
+                </ListItem>
               </List>
             </PopoverBody>
           </PopoverContent>
