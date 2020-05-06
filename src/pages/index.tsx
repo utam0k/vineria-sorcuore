@@ -13,10 +13,11 @@ import {
   Link,
   useTheme,
 } from '@chakra-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 import { Layout } from '../templates/Layout/Layout';
 import { Description } from '../organisms/Description/Description';
-import { Instagrams } from '../organisms/Instagrams/Instagrams';
 import { Section } from '../organisms/Section/Section';
 import { useWindowSize } from '../utils/hooks/useWindowSize';
 
@@ -174,7 +175,30 @@ export const Home = () => {
           ))}
         </Box>
       </Section>
-      <Instagrams />
+      <Section
+        title="SNS"
+        text={'店舗からのお知らせや、料理の写真などを掲載しています。'}
+        image={{
+          url: 'https://instagram.com/p/B5uHGflHeCy/media?size=l',
+          alt: 'lunch',
+        }}
+      >
+        <Flex align="center" justify="center" flexWrap="wrap" marginTop={theme.space[4]}>
+          {[
+            { name: 'Instagram', href: 'https://www.instagram.com/vineriasorcuore1213/', icon: faInstagram },
+            { name: 'Facebook', href: 'https://www.facebook.com/vineriasorcuore1213/', icon: faFacebook },
+          ].map((item) => (
+            <Link href={item.href} marginX={theme.space[2]} marginBottom={theme.space[4]} key={item.name} isExternal>
+              <Button>
+                <FontAwesomeIcon icon={item.icon} />
+                <Text marginLeft={theme.space[2]} fontSize={theme.fontSizes.sm}>
+                  {item.name}
+                </Text>
+              </Button>
+            </Link>
+          ))}
+        </Flex>
+      </Section>
     </Layout>
   );
 };
