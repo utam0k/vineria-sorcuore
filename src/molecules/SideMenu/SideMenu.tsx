@@ -39,6 +39,9 @@ export const SideMenu: React.FC<Props> = ({ isOpen, onClose }) => {
                 <ListItem>
                   <LinkItem href="/menu/a-la-carte">アラカルト</LinkItem>
                 </ListItem>
+                <ListItem>
+                  <LinkItem href="/menu/takeout">テイクアウト</LinkItem>
+                </ListItem>
               </List>
             </ListItem>
             <ListItem>
