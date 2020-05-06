@@ -7,12 +7,7 @@ const StoreInfo = () => {
   const theme = useTheme();
   return (
     <Layout>
-      <Heading
-        textAlign="center"
-        fontSize={[theme.fontSizes['3xl'], theme.fontSizes['3xl'], theme.fontSizes['3xl'], theme.fontSizes['5xl']]}
-        marginY={[theme.space[4], theme.space[4], theme.space[4], theme.space[8]]}
-        fontWeight="normal"
-      >
+      <Heading as="h1" textAlign="center" marginTop={theme.space[8]}>
         店舗情報
       </Heading>
       <Flex

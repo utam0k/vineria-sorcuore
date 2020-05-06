@@ -83,13 +83,13 @@ export const Home = () => {
       >
         <Flex marginTop={theme.space[8]} align="center" justify="center">
           <Link
-            href={'/access'}
+            href={'/store-information'}
             _hover={{
               textDecoration: 'none',
             }}
           >
             <Button variantColor="yellow" variant="outline">
-              アクセス
+              店舗情報
             </Button>
           </Link>
         </Flex>
