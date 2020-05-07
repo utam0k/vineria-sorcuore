@@ -3,7 +3,7 @@ import { Link, Button, SimpleGrid, Text, Heading, Flex, Box, useTheme } from '@c
 
 import { Layout } from '../templates/Layout/Layout';
 
-const Reservation = () => {
+export const Reservation = () => {
   const theme = useTheme();
   return (
     <Layout>
@@ -11,9 +11,9 @@ const Reservation = () => {
         <Heading as="h1" marginTop={theme.space[8]}>
           ご予約
         </Heading>
-        <Box marginBottom={theme.space[4]} marginTop={theme.space[8]}>
+        <Box marginBottom={theme.space[4]} marginTop={theme.space[8]} marginX={theme.space[4]}>
           <Text whiteSpace="pre-wrap">
-            {`宴会のご相談やメニューのご相談お気軽にお問い合わせください！\nコースはご予約のみとなっており、５名様以上はコースをオススメしております。`}
+            {`宴会のご相談やメニューのご相談お気軽にお問い合わせください！\nコースはご予約のみとなっており、5名様以上はコースをオススメしております。`}
           </Text>
         </Box>
         <Flex flexWrap="wrap" justifyContent="center">

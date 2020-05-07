@@ -23,7 +23,7 @@ export const Notification = () => {
             >
               <AlertIcon />
               <Box flex="1">
-                <Link href={'https://www.instagram.com/p/B_B4SjMnyXX/'}>
+                <Link href={'https://www.instagram.com/p/B_B4SjMnyXX/'} textDecoration="underline">
                   <AlertDescription fontSize="sm" fontWeight="normal" whiteSpace="pre-wrap" overflowWrap="break-word">
                     {`新型コロナウィルス感染拡大防止に伴う、店舗営業時間短縮のお知らせ`}
                   </AlertDescription>
