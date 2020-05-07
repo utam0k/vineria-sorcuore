@@ -177,7 +177,7 @@ export const Home = () => {
       </Section>
       <Section
         title="SNS"
-        text={'店舗からのお知らせや、料理の写真などを掲載しています。'}
+        text={'店舗からの最新のお知らせや、料理の写真などを掲載しています。よかったら覗いてみてください。'}
         image={{
           url: 'https://instagram.com/p/B5uHGflHeCy/media?size=l',
           alt: 'sns',
@@ -188,7 +188,14 @@ export const Home = () => {
             { name: 'Instagram', href: 'https://www.instagram.com/vineriasorcuore1213/', icon: faInstagram },
             { name: 'Facebook', href: 'https://www.facebook.com/vineriasorcuore1213/', icon: faFacebook },
           ].map((item) => (
-            <Link href={item.href} marginX={theme.space[2]} marginBottom={theme.space[4]} key={item.name} isExternal>
+            <Link
+              href={item.href}
+              marginX={theme.space[2]}
+              marginBottom={theme.space[4]}
+              key={item.name}
+              _hover={{ textDecoration: 'none' }}
+              isExternal
+            >
               <Button>
                 <FontAwesomeIcon icon={item.icon} />
                 <Text marginLeft={theme.space[2]} fontSize={theme.fontSizes.sm}>
