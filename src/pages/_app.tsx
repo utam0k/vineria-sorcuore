@@ -2,8 +2,8 @@ import React from 'react';
 import { AppProps } from 'next/app';
 import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 import { Global, css } from '@emotion/core';
-import { customTheme } from '../theme';
 
+import { customTheme } from '../theme';
 import { Notification } from '../organisms/Notification/Notification';
 
 function MyApp({ Component, pageProps }: AppProps) {
