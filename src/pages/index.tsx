@@ -180,7 +180,7 @@ export const Home = () => {
         text={'店舗からのお知らせや、料理の写真などを掲載しています。'}
         image={{
           url: 'https://instagram.com/p/B5uHGflHeCy/media?size=l',
-          alt: 'lunch',
+          alt: 'sns',
         }}
       >
         <Flex align="center" justify="center" flexWrap="wrap" marginTop={theme.space[4]}>
