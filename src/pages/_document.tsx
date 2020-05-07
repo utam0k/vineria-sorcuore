@@ -18,7 +18,7 @@ class MyDocument extends Document {
           <link
             href="https://fonts.googleapis.com/css2?family=Questrial&text=0123456789&display=swap"
             rel="stylesheet"
-          ></link>
+          />
         </Head>
         <body>
           <Main />
