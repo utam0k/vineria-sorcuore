@@ -7,9 +7,13 @@ type Props = { href: string } & React.ComponentProps<typeof Link>;
 export const LinkItem = forwardRef<HTMLAnchorElement, Props>(({ href, children, ...props }, ref) => {
   const theme = useTheme();
 
-  return (
+  return props.isExternal ? (
+    <Link {...props} href={href} d="flex" px={theme.space[4]} py={theme.space[2]} ref={ref}>
+      {children}
+    </Link>
+  ) : (
     <NextLink href={href}>
-      <Link {...props} d="block" px={theme.space[4]} py={theme.space[2]} ref={ref}>
+      <Link {...props} d="flex" px={theme.space[4]} py={theme.space[2]} ref={ref}>
         {children}
       </Link>
     </NextLink>
