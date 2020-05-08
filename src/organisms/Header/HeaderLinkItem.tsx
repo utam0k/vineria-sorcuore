@@ -11,10 +11,10 @@ export const HeaderLinkItem = forwardRef<HTMLAnchorElement, Props>(({ href, chil
     <LinkItem
       {...props}
       href={href}
-      display="block"
       paddingX={theme.space[4]}
       paddingY={theme.space[2]}
       color={theme.colors.green[500]}
+      justifyContent="center"
       fontWeight="bold"
       textAlign="center"
       border="2px solid"
