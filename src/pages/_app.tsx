@@ -5,6 +5,7 @@ import { Global, css } from '@emotion/core';
 
 import { customTheme } from '../theme';
 import { Notification } from '../organisms/Notification/Notification';
+import { Footer } from '../organisms/Footer/Footer';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -25,6 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       />
       <Notification />
       <Component {...pageProps} />
+      <Footer />
     </ThemeProvider>
   );
 }
