@@ -59,6 +59,10 @@ export const Takeout = () => {
                 imageUrl={menu.image}
                 key={i}
                 onClick={onCardClick}
+                badges={{
+                  isDeliverable: menu.isDeliverable,
+                  isFrozen: menu.isFrozen,
+                }}
               />
             ))
           : [...new Array(windowSize.width ? NumCardsInOneLine(windowSize.width) : 1)].map((_, i) => (
