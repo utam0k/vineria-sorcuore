@@ -235,8 +235,21 @@ export const Home = () => {
           url: 'https://instagram.com/p/B8kkfNWnikO/media?size=l',
           alt: 'information',
         }}
+        imageSubstitute={
+          <Box
+            width="100%"
+            height={[theme.sizes[48], theme.sizes[48], theme.sizes.md, theme.sizes.md]}
+            objectFit="cover"
+          >
+            <iframe
+              frameBorder="0"
+              style={{ width: '100%', height: '100%' }}
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.3338982668247!2d139.79703251566926!3d35.69340013691105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889d9c651f49b%3A0xd05466b3466c9acb!2z44O044Kj44ON44Oq44KiIOOCveODq-OCr-OCquODvOODrFZpbmVyaWEgU29yY3VvcmU!5e0!3m2!1sja!2sjp!4v1588411529012!5m2!1sja!2sjp"
+            ></iframe>
+          </Box>
+        }
       >
-        <SimpleGrid columns={[1, 1, 1, 2]} spacingX={6} spacingY={[0, 0, 0, 4]}>
+        <SimpleGrid columns={1} spacingX={6}>
           {[
             {
               name: '住所',
@@ -244,47 +257,30 @@ export const Home = () => {
             },
             { name: 'TEL', desc: '03-6284-0446' },
             { name: '定休日', desc: '火曜日' },
-            { name: 'ランチ営業', desc: '月～日曜\n11時半～15時 L.O. 14時' },
+            { name: 'ランチ営業', desc: '月～日曜 11時半～15時 L.O. 14時' },
             {
               name: 'ディナー営業',
               desc:
-                '月～土曜\n18時～24時\n23時最終入店 フードL.O. 22時\n\n日曜日\n18時～21時  21時最終入店\n\n月曜日 不定休 有り',
+                '月～土曜 18時～24時 23時最終入店(フードL.O. 22時)\n日曜日 18時～21時 21時最終入店\n月曜日 不定休有り',
             },
           ].map((item, i) => (
             <Fragment key={i}>
-              <Box borderRight={['none', 'none', 'none', 'solid']}>
+              <Box>
                 <Heading
                   fontSize={['lg', 'lg', 'lg', 'md']}
-                  borderBottom={['solid', 'solid', 'solid', 'none']}
-                  marginTop={[theme.space[6], theme.space[6], theme.space[6], 0]}
-                  marginBottom={[theme.space[2], theme.space[2], 0, 0]}
+                  borderBottom="solid"
+                  marginTop={theme.space[6]}
+                  marginBottom={theme.space[2]}
                 >
                   {item.name}
                 </Heading>
               </Box>
-              <Text
-                marginLeft={[theme.space[4], theme.space[4], theme.space[4], 0]}
-                whiteSpace="pre-wrap"
-                overflowWrap="break-word"
-                wordBreak="break-all"
-              >
+              <Text marginLeft={theme.space[4]} whiteSpace="pre-wrap" overflowWrap="break-word" wordBreak="break-all">
                 {item.desc}
               </Text>
             </Fragment>
           ))}
         </SimpleGrid>
-        <Flex justify="center" marginTop={theme.space[8]}>
-          <Link
-            href={'/store-information'}
-            _hover={{
-              textDecoration: 'none',
-            }}
-          >
-            <Button variantColor="teal" variant="outline">
-              詳細
-            </Button>
-          </Link>
-        </Flex>
       </Section>
       <Section
         title="SNS"
