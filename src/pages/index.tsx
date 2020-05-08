@@ -54,48 +54,22 @@ export const Home = () => {
         }
         image={{
           url:
-            'https://jimdo-storage.freetls.fastly.net/image/58541700/a859a20a-51e0-411d-a2f0-68d07866595a.jpg?format=pjpg&quality=80&auto=webp&disable=upscale',
+            'https://lh3.googleusercontent.com/JWJSzuD1xA0woE-TFL4kQOmn7otjqVslrQ4uOFTyAJSUqr5LYzgfPK_tJWieGRodPHgn_iljweQPG8hNdiqYSgaNXii7X2YcEIgeYxQRytqHle8LUuvwxz2f8sCCVO7cbQoXVX1YMw',
           alt: 'about',
         }}
-      >
-        <Flex marginTop={theme.space[8]} align="center" justify="center">
-          <Link
-            href={'/menu'}
-            _hover={{
-              textDecoration: 'none',
-            }}
-          >
-            <Button variantColor="teal" variant="outline">
-              メニューを見る
-            </Button>
-          </Link>
-        </Flex>
-      </Section>
+      />
       <Section
         title="Concept"
         text={
-          '両国駅から徒歩８分と少し離れた隠れ家的イタリアンです。\nカウンターを中心とした広々としたお席で､皆様にゆっくりとお食事を楽しんで頂ける空間となっております。\n夜９時以降はふらっと、軽くつまんでワインを飲みたいお客様の為にもワインバーとして立ち飲みスペースも設けております。\nお酒が飲み足りない方や帰り道の方もぜひ、お気軽にお立ち寄りください！'
+          '住宅街にひっそりと佇むイタリアンレストラン。\n広々としたカウンターのお席で時間を忘れてワインとお食事をお楽しみいただけます。'
         }
         image={{
           url:
             'https://jimdo-storage.freetls.fastly.net/image/58541700/a859a20a-51e0-411d-a2f0-68d07866595a.jpg?format=pjpg&quality=80&auto=webp&disable=upscale',
-          alt: 'about',
+          alt: 'concept',
         }}
         reverse
-      >
-        <Flex marginTop={theme.space[8]} align="center" justify="center">
-          <Link
-            href={'/store-information'}
-            _hover={{
-              textDecoration: 'none',
-            }}
-          >
-            <Button variantColor="yellow" variant="outline">
-              店舗情報
-            </Button>
-          </Link>
-        </Flex>
-      </Section>
+      />
       <Section
         title="Lunch"
         text={
@@ -161,8 +135,9 @@ export const Home = () => {
         title="Wine"
         text={'イタリア、フランスワインを常時40種類程取り揃えております。ほんの一部をご紹介します。'}
         image={{
-          url: 'http://u0u0.net/V499',
-          alt: 'about',
+          url:
+            'https://lh3.googleusercontent.com/7X2iPnNeosuOiKJ81TREeEs2HEfz1IrmK60NqsMzwj3iaG4SvAL_VUK2ncKPEwwJPcJLCWWnKY-t80qssdF3t-oF7InWJwv7GoiNhJWVgJfs1lou_EmHqIKZDsdf1ugyIiMPN0-QtA',
+          alt: 'wine',
         }}
       >
         <Tabs
@@ -211,7 +186,8 @@ export const Home = () => {
           'ソルクオーレの食卓は、テイクアウトでお手軽にソルクオーレの本格イタリアンを楽しめるシリーズです！\n夜ご飯のおかずに困ったとき、お酒のお供に。'
         }
         image={{
-          url: 'https://instagram.com/p/B_HK9yrHK6P/media?size=l',
+          url:
+            'https://lh3.googleusercontent.com/ZPVP_2WB3wQR7xxGJ3__g56T0Ah0_LhBV42WWUqI7wnxKMk8XLrng1JI7bbyTMydPXcu1bFy5xlVoCUb1Ybb1eA82cCsdQLSPstCfndcS9N1WHv_Z2yy0U0cpDE8Y5NiRXbXUyXwgA',
           alt: 'takeout',
         }}
         reverse

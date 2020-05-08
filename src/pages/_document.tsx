@@ -11,6 +11,7 @@ class MyDocument extends Document {
     return (
       <Html lang="ja">
         <Head>
+          <link rel="icon" href="/favicon.ico" />
           <link
             href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;700&family=Libre+Baskerville:ital,wght@0,700;1,400&display=swap"
             rel="stylesheet"

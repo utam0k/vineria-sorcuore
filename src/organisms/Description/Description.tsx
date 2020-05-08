@@ -40,7 +40,7 @@ export const Description = () => {
       overflow="hidden"
       ref={ref}
     >
-      <BackgroundImage imageUrl="http://u0u0.net/Yep3" overlayColor="#54140d" />
+      <BackgroundImage imageUrl="https://lh3.googleusercontent.com/DA704PWoPSzPemo3wHeFThNhaiF-tWVQQOxhQOOjafI7GSvr7smKUKODeciS_VY1FtOlFhq-_TZ7wqxQH9fSAik9tzXG7WNL-cpfwbxi3Oi6ycah5zDpFoEyLr78VTITz3snuNzMDA" />
       <Heading
         as="h1"
         size="2xl"
@@ -72,9 +72,8 @@ export const Description = () => {
           label="こだわり"
           title="Commitment"
           link={{
-            label: 'テイクアウト',
-            url: 'https://docs.google.com/forms/d/e/1FAIpQLSfJuTZyj2bUAjQgzpw8p86qmgYIjn4HnJA_JumEscltATE8qg/viewform',
-            external: true,
+            label: '予約する',
+            url: '/reservation',
           }}
         >
           {`イタリア滞在経験のあるシェフ神谷がお料理をご提供します。\nシェフ自ら、契約農家に足を運び厳選した食材でイタリアの郷土料理の味を再現し、冬にはジビエやトリュフ、春には野菜を使ったりと季節によってワインのマリアージュを考えています。`}
