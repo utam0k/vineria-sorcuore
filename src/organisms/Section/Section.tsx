@@ -11,7 +11,7 @@ type Props = {
   color?: string;
   backgroundColor?: string;
   reverse?: boolean;
-  imageSubstitute?: JSX.Element;
+  imageSubstitute?: React.ReactNode;
 };
 
 export const Section: React.FC<Props> = ({
