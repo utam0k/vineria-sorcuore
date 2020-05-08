@@ -55,7 +55,10 @@ export const Takeout = () => {
               <Card
                 title={menu.name}
                 description={menu.description}
-                price={menu.price}
+                cost={{
+                  price: menu.price,
+                  amount: menu.amount,
+                }}
                 imageUrl={menu.image}
                 key={i}
                 onClick={onCardClick}
