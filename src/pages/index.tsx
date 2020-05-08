@@ -154,28 +154,48 @@ export const Home = () => {
           </TabList>
           <TabPanels minHeight={theme.sizes[40]}>
             <TabPanel>
-              <Flex justify="space-between" marginTop={theme.space[3]}>
-                <Heading as="i" fontSize="md" fontWeight="md">
-                  ドラピエ カルトドール (フランス・シャンパーニュ)
-                </Heading>
-                <Text fontSize="sm">￥8800</Text>
-              </Flex>
+              {[
+                { name: 'ドラピエ カルトドール (フランス・シャンパーニュ)', price: 8800 },
+                { name: 'フェッラーリ ペルレ (イタリア・トレント)', price: 9000 },
+                { name: 'フランチャコルタ  ドッサージュ ゼロ ウーノ (イタリア・ロンバルディア)', price: 1200 },
+              ].map((item, i) => (
+                <Flex key={i} justify="space-between" marginTop={theme.space[3]}>
+                  <Heading fontSize="md" fontWeight="md">
+                    {item.name}
+                  </Heading>
+                  <Text fontSize="md">￥{item.price}</Text>
+                </Flex>
+              ))}
             </TabPanel>
             <TabPanel>
-              <Flex justify="space-between" marginTop={theme.space[3]}>
-                <Heading as="i" fontSize="md" fontWeight="md">
-                  ソ アヴェ (イタリア・ヴェネト)
-                </Heading>
-                <Text fontSize="sm">￥4800</Text>
-              </Flex>
+              {[
+                { name: 'ソ アヴェ (イタリア・ヴェネト)', price: 4800 },
+                { name: '"アルターレ" トレッビアーノ ダブルッツォ (イタリア・アブルッツォ)', price: 7800 },
+                { name: 'シャトーヌフ デュ パプ ブラン (フランス・コート デュ ローヌ)', price: 8800 },
+                { name: 'サンセール (フランス・ロワール)', price: 11000 },
+              ].map((item, i) => (
+                <Flex key={i} justify="space-between" marginTop={theme.space[3]}>
+                  <Heading fontSize="md" fontWeight="md">
+                    {item.name}
+                  </Heading>
+                  <Text fontSize="md">￥{item.price}</Text>
+                </Flex>
+              ))}
             </TabPanel>
             <TabPanel>
-              <Flex justify="space-between" marginTop={theme.space[3]}>
-                <Heading as="i" fontSize="md" fontWeight="md">
-                  キャンティ リゼルヴァ (イタリア・トスカーナ)
-                </Heading>
-                <Text fontSize="sm">￥4800</Text>
-              </Flex>
+              {[
+                { name: 'キャンティ  リゼルヴァ (イタリア・トスカーナ)', price: 4800 },
+                { name: 'アルデッシュ マルコス ルージュ (フランス・ローヌ)', price: 6000 },
+                { name: 'ブルネッロ ディ モンタルチーノ (イタリア・トスカーナ)', price: 1300 },
+                { name: 'コルナス "ラ  ルーヴ" (フランス・ローヌ)', price: 20000 },
+              ].map((item, i) => (
+                <Flex key={i} justify="space-between" marginTop={theme.space[3]}>
+                  <Heading fontSize="md" fontWeight="md">
+                    {item.name}
+                  </Heading>
+                  <Text fontSize="md">￥{item.price}</Text>
+                </Flex>
+              ))}
             </TabPanel>
           </TabPanels>
         </Tabs>
