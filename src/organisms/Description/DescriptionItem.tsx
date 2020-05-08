@@ -50,14 +50,16 @@ export const DescriptionItem: React.FC<Props> = ({ label, title, link, children 
             textDecoration: 'none',
           }}
         >
-          <Button variantColor="teal">
+          <Button variantColor="teal" minWidth={theme.sizes[40]}>
             {link.label}
             <Icon name="external-link" mx="2px" />
           </Button>
         </Link>
       ) : (
         <NextLink href={link.url}>
-          <Button variantColor="teal">{link.label}</Button>
+          <Button variantColor="teal" minWidth={theme.sizes[40]}>
+            {link.label}
+          </Button>
         </NextLink>
       )}
     </Box>
