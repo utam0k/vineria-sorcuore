@@ -3,4 +3,6 @@ export type Menu = {
   price: number;
   image: string;
   description: string;
+  isDeliverable: boolean;
+  isFrozen: boolean;
 };
