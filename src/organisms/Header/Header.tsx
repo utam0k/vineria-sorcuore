@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import {
+  Box,
   Heading,
   Flex,
   useTheme,
@@ -11,9 +12,12 @@ import {
   Popover,
   List,
   ListItem,
+  Link,
 } from '@chakra-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+
 import { SideMenu } from '../../molecules/SideMenu/SideMenu';
 import { HeaderLinkItem } from './HeaderLinkItem';
 
@@ -75,6 +79,18 @@ export const Header: React.FC<Props> = ({ position = 'sticky', needGradation = f
         Vineria Sorcuor
       </Heading>
       <Flex display={['none', 'none', 'flex', 'flex']}>
+        <Box marginRight={theme.space[4]}>
+          {[
+            { href: 'https://www.instagram.com/vineriasorcuore1213/', icon: faInstagram },
+            { href: 'https://www.facebook.com/vineriasorcuore1213/', icon: faFacebook },
+          ].map((item, i) => (
+            <Link href={item.href} marginX={theme.space[1]} key={i} _hover={{ textDecoration: 'none' }} isExternal>
+              <Button variant="unstyled">
+                <FontAwesomeIcon size="2x" color={theme.colors.green[500]} icon={item.icon} />
+              </Button>
+            </Link>
+          ))}
+        </Box>
         <HeaderLinkItem href="/">ホーム</HeaderLinkItem>
         <Popover trigger="hover" usePortal>
           <PopoverTrigger>

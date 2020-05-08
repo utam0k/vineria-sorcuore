@@ -1,15 +1,21 @@
 import React from 'react';
 import {
+  Button,
   Drawer,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
   DrawerBody,
   DrawerHeader,
+  Text,
   ListItem,
   List,
+  Link,
   useTheme,
 } from '@chakra-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+
 import { LinkItem } from '../../atoms/LinkItem/LinkItem';
 
 type Props = {
@@ -47,6 +53,19 @@ export const SideMenu: React.FC<Props> = ({ isOpen, onClose }) => {
             <ListItem>
               <LinkItem href="/reservation">ご予約</LinkItem>
             </ListItem>
+            {[
+              { name: 'Instagram', href: 'https://www.instagram.com/vineriasorcuore1213/', icon: faInstagram },
+              { name: 'Facebook', href: 'https://www.facebook.com/vineriasorcuore1213/', icon: faFacebook },
+            ].map((item) => (
+              <ListItem key={item.name}>
+                <LinkItem href={item.href} isExternal>
+                  <FontAwesomeIcon icon={item.icon} />
+                  <Text marginLeft={theme.space[2]} fontSize={theme.fontSizes.sm} fontWeight={theme.fontWeights.thin}>
+                    {item.name}
+                  </Text>
+                </LinkItem>
+              </ListItem>
+            ))}
           </List>
         </DrawerBody>
       </DrawerContent>
