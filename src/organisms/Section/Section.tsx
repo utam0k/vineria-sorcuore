@@ -11,9 +11,19 @@ type Props = {
   color?: string;
   backgroundColor?: string;
   reverse?: boolean;
+  imageSubstitute?: JSX.Element;
 };
 
-export const Section: React.FC<Props> = ({ children, title, text, image, reverse = false, backgroundColor, color }) => {
+export const Section: React.FC<Props> = ({
+  children,
+  title,
+  text,
+  image,
+  reverse = false,
+  backgroundColor,
+  color,
+  imageSubstitute,
+}) => {
   const theme = useTheme();
 
   const bc = useMemo(() => {
@@ -38,13 +48,15 @@ export const Section: React.FC<Props> = ({ children, title, text, image, reverse
         justify="center"
         align="center"
       >
-        <Image
-          alt={image.alt}
-          width="100%"
-          height={[theme.sizes[40], '100%', '100%', '100%']}
-          objectFit="cover"
-          src={image.url}
-        />
+        {imageSubstitute || (
+          <Image
+            alt={image.alt}
+            width="100%"
+            height={[theme.sizes[40], '100%', '100%', '100%']}
+            objectFit="cover"
+            src={image.url}
+          />
+        )}
       </Flex>
     ),
     [image, theme]
