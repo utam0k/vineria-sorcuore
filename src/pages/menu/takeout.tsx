@@ -55,10 +55,17 @@ export const Takeout = () => {
               <Card
                 title={menu.name}
                 description={menu.description}
-                price={menu.price}
+                cost={{
+                  price: menu.price,
+                  amount: menu.amount,
+                }}
                 imageUrl={menu.image}
                 key={i}
                 onClick={onCardClick}
+                badges={{
+                  isDeliverable: menu.isDeliverable,
+                  isFrozen: menu.isFrozen,
+                }}
               />
             ))
           : [...new Array(windowSize.width ? NumCardsInOneLine(windowSize.width) : 1)].map((_, i) => (
