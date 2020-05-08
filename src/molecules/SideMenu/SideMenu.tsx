@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Button,
   Drawer,
   DrawerOverlay,
   DrawerContent,
@@ -10,7 +9,6 @@ import {
   Text,
   ListItem,
   List,
-  Link,
   useTheme,
 } from '@chakra-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
