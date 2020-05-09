@@ -6,7 +6,7 @@ export default { title: 'DescriptionItem' };
 export const descriptionItem = () => (
   <DescriptionItem
     label="ヴィネリアソルクオーレ"
-    title="Vineria Sorcuor"
+    title="Vineria Sorcuore"
     link={{ label: 'メニューを見る', url: 'https://example.com' }}
   >
     {
