@@ -4,8 +4,12 @@ import { Link as ChakraLink, LinkProps } from '@chakra-ui/core';
 
 type Props = { href: string } & LinkProps;
 
-export const Link = forwardRef<HTMLAnchorElement, Props>(({ href, ...props }, ref) => (
-  <NextLink href={href}>
+export const Link = forwardRef<HTMLAnchorElement, Props>(({ href, ...props }, ref) =>
+  props.isExternal ? (
     <ChakraLink {...props} _focus={{ outline: 'none' }} href={href} ref={ref} />
-  </NextLink>
-));
+  ) : (
+    <NextLink href={href}>
+      <ChakraLink {...props} _focus={{ outline: 'none' }} href={href} ref={ref} />
+    </NextLink>
+  )
+);
