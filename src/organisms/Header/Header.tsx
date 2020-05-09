@@ -12,7 +12,6 @@ import {
   Popover,
   List,
   ListItem,
-  Link,
 } from '@chakra-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -20,6 +19,7 @@ import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 import { SideMenu } from '../../molecules/SideMenu/SideMenu';
 import { HeaderLinkItem } from './HeaderLinkItem';
+import { Link } from '../../atoms/Link/Link';
 
 type Props = {
   position?: 'fixed' | 'sticky';
@@ -76,7 +76,9 @@ export const Header: React.FC<Props> = ({ position = 'sticky', needGradation = f
         fontWeight="bold"
         color="green.500"
       >
-        Vineria Sorcuor
+        <Link href="/" _hover={{ textDecoration: 'none' }}>
+          Vineria Sorcuore
+        </Link>
       </Heading>
       <Flex display={['none', 'none', 'flex', 'flex']}>
         <Box marginRight={theme.space[4]}>
