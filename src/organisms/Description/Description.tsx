@@ -61,7 +61,7 @@ export const Description = () => {
       >
         <DescriptionItem
           label="ヴィネリアソルクオーレ"
-          title="Vineria Sorcuor"
+          title="Vineria Sorcuore"
           link={{ label: 'メニューを見る', url: '/menu' }}
         >
           {
