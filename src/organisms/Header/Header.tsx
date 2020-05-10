@@ -76,7 +76,7 @@ export const Header: React.FC<Props> = ({ position = 'sticky', needGradation = f
         fontWeight="bold"
         color="green.500"
       >
-        Vineria Sorcuor
+        Vineria Sorcuore
       </Heading>
       <Flex display={['none', 'none', 'flex', 'flex']}>
         <Box marginRight={theme.space[4]}>
