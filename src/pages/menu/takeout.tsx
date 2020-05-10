@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { Heading, Flex, Text, Box, useTheme } from '@chakra-ui/core';
+import { Heading, Text, Box, useTheme, SimpleGrid } from '@chakra-ui/core';
 import { Card } from '../../components/Card/Card';
 import { CardSkeleton } from '../../components/Card/CardSkeleton';
 import { ImageModal } from '../../molecules/ImageModal/ImageModal';
@@ -49,7 +49,7 @@ export const Takeout = () => {
           {`テイクアウトでお手軽にソルクオーレの本格イタリアンを楽しめるシリーズです！\n夜ご飯のおかずに困ったとき、お酒のお供に。`}
         </Text>
       </Box>
-      <Flex align="center" justify="center" flexWrap="wrap">
+      <SimpleGrid minChildWidth={[theme.sizes.xs, theme.sizes.xs, theme.sizes.sm, theme.sizes.sm]} overflow="hidden">
         {menus
           ? menus.map((menu, i) => (
               <Card
@@ -66,12 +66,13 @@ export const Takeout = () => {
                   isDeliverable: menu.isDeliverable,
                   isFrozen: menu.isFrozen,
                 }}
+                margin={`0 auto ${theme.space[8]}`}
               />
             ))
           : [...new Array(windowSize.width ? NumCardsInOneLine(windowSize.width) : 1)].map((_, i) => (
               <CardSkeleton key={i} />
             ))}
-      </Flex>
+      </SimpleGrid>
       <ImageModal {...imageModal} onClose={onModalClose} />
     </Layout>
   );
