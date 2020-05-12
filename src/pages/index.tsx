@@ -282,7 +282,8 @@ export const Home = () => {
         title="SNS"
         text={'店舗からの最新のお知らせや、料理の写真などを掲載しています。よかったら覗いてみてください。'}
         image={{
-          url: 'https://instagram.com/p/B5uHGflHeCy/media?size=l',
+          url:
+            'https://lh3.googleusercontent.com/YhdX0cVoH1I8NtF-4ZdLngPyBsxQmoUg_fDlT0B4Ah3NtfQRDPkl6s5wvh_PO-RvlmjdXDXsDjuRs93-wB8KRuxBgaNb4wGgHjgLYV96jNv3DSOV0hnGNRu3d1s7KNMdaVvBJtKPxKSa54qflvrXWoRAGlzszpxZHjP4dtBUq0i2X4W5brOVt0S5eAm14qk4UnSpvfE6tkqGnKbkg6EEPaPIB-YOrLjTVDstU8r3A8gkK4uuuCBIWLxjR0nPQofBDaeXpm0Gb3-qwdZpA36fJQKsFfLW1SAH9uA9zJqKaHxi81Uz6ZDZWNMCppt3spx6-Rzs6TtrIL4QrRvpPSThacYwJU9ZlLsJezi28GsITfFGpnmhAKHAxEm4J0LXZHorU89Yz0kBnOd1lwQ6kJrdKKcdlMat1zL58p-Nmf7FGLmgWlZ8kW2tv4wvW5aL9yopUa94Z6YatZGsJgMObj-vCHVzDjNI_Rm7v9aAzNlHTbMST9l6qZgAm1kQV1raakQGrPOtrNNIJUm_AizLFUhFyBGgg9mkU5kGkARhsbaGj3MlTZ77LP0-cGxXpKXCpG9Xto_euKxoVHW1d4HpiTnZzyNDqW7RhCQix8Ykh5gZHIhIOVzU4WTBZDEV9hSzZSduiopIxChsxjcw4Fx1dhi_Mpxz8kqgqkBiQ8b4i7ANQZhny1VJJ_k_0Udzik0B_YKPuo-MOhM75bRqrZ616hKPhLstYtUwOPE2SVJgYV9FcD7LHXeEgtTM5g',
           alt: 'sns',
         }}
         reverse
