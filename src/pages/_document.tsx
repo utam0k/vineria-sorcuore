@@ -20,6 +20,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Questrial&text=0123456789&display=swap"
             rel="stylesheet"
           />
+          <meta name="google-site-verification" content="PXUOZKswkXrPiFz_zMFkF8RS1yHTGD4TJZVLlWORWSY" />
         </Head>
         <body>
           <Main />
