@@ -11,9 +11,14 @@ export const CourseMenuPage = () => {
         <Heading as="h1" textAlign="center" marginTop={theme.space[8]}>
           コースメニュー
         </Heading>
-        <Text marginBottom={theme.space[12]} marginTop={theme.space[8]} whiteSpace="pre-wrap" marginX={theme.space[8]}>
-          {`旬の食材、イタリア直送の食材を使ったフルコースのご用意です。パスタとメインディッシュがプリフィックスとなっており、メインディッシュはご予約の際にお伺いいたします。お任せコースも承ります。コースは事前の予約をお願いいたします。\n税別 ￥9000 ~`}
-        </Text>
+        <Box marginBottom={theme.space[12]} marginTop={theme.space[8]} marginX={theme.space[8]}>
+          <Text whiteSpace="pre-wrap">
+            {`旬の食材、イタリア直送の食材を使ったフルコースのご用意です。パスタとメインディッシュがプリフィックスとなっており、メインディッシュはご予約の際にお伺いいたします。お任せコースも承ります。コースは事前の予約をお願いいたします。`}
+          </Text>
+          <Text whiteSpace="pre-wrap" textAlign="right">
+            {`税別 ￥9000 ~`}
+          </Text>
+        </Box>
       </Box>
       <Flex
         paddingY={[theme.space[0], theme.space[0], theme.space[4], theme.space[4]]}
