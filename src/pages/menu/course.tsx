@@ -7,9 +7,14 @@ export const CourseMenuPage = () => {
   const theme = useTheme();
   return (
     <Layout>
-      <Heading as="h1" textAlign="center" marginTop={theme.space[8]}>
-        コースメニュー
-      </Heading>
+      <Box as="header" margin="auto" maxWidth={theme.sizes['4xl']}>
+        <Heading as="h1" textAlign="center" marginTop={theme.space[8]}>
+          コースメニュー
+        </Heading>
+        <Text marginBottom={theme.space[12]} marginTop={theme.space[8]} whiteSpace="pre-wrap" marginX={theme.space[8]}>
+          {`旬の食材、イタリア直送の食材を使ったフルコースのご用意です。パスタとメインディッシュがプリフィックスとなっており、メインディッシュはご予約の際にお伺いいたします。お任せコースも承ります。コースは事前の予約をお願いいたします。\n税別 ￥9000 ~`}
+        </Text>
+      </Box>
       <Flex
         paddingY={[theme.space[0], theme.space[0], theme.space[4], theme.space[4]]}
         justify="center"
