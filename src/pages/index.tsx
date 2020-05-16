@@ -48,17 +48,6 @@ export const Home = () => {
     <Layout position="fixed" needGradation>
       <Description />
       <Section
-        title="About"
-        text={
-          '初めは千葉県松戸市の「オステリア タナロ」から始まりました。\nイタリア滞在経験がありイタリアをこよなく愛するオーナー兼ソムリエの成嶋とシェフの神谷の熱い思いによって皆様に愛されるお店になり、そして２号店となる「ヴィネリア ソルクオーレ」を両国にオープンする事が出来ました。\n当店ではイタリア滞在経験のあるシェフ神谷がお料理をご提供します。'
-        }
-        image={{
-          url:
-            'https://lh3.googleusercontent.com/JWJSzuD1xA0woE-TFL4kQOmn7otjqVslrQ4uOFTyAJSUqr5LYzgfPK_tJWieGRodPHgn_iljweQPG8hNdiqYSgaNXii7X2YcEIgeYxQRytqHle8LUuvwxz2f8sCCVO7cbQoXVX1YMw',
-          alt: 'about',
-        }}
-      />
-      <Section
         title="Concept"
         text={
           '住宅街にひっそりと佇むイタリアンレストラン。\n広々としたカウンターのお席で時間を忘れてワインとお食事をお楽しみいただけます。'
@@ -68,8 +57,39 @@ export const Home = () => {
             'https://jimdo-storage.freetls.fastly.net/image/58541700/a859a20a-51e0-411d-a2f0-68d07866595a.jpg?format=pjpg&quality=80&auto=webp&disable=upscale',
           alt: 'concept',
         }}
-        reverse
       />
+      <Section
+        title="Dinner"
+        text={
+          '旬の食材、イタリア直送の食材を使ったフルコースのご用意です。\nパスタとメインディッシュがプリフィックスとなっており、メインディッシュはご予約の際にお伺いいたします。お任せコースも承ります。\nまた、アラカルトではワインに合う小皿のおつまみから、本格的なイタリアの郷土料理まで豊富に揃えております。'
+        }
+        image={{
+          url: 'https://www.instagram.com/p/B-oZvE7nAGL/media?size=l',
+          alt: 'dinner',
+        }}
+        reverse
+      >
+        <Flex justify="center" alignItems="center" marginTop={theme.space[8]} flexWrap="wrap">
+          {[
+            { name: 'コースメニュー', href: '/menu/course' },
+            { name: 'アラカルトメニュー', href: '/menu/a-la-carte' },
+          ].map((item) => (
+            <Link
+              href={item.href}
+              marginX={theme.space[2]}
+              marginBottom={theme.space[4]}
+              _hover={{
+                textDecoration: 'none',
+              }}
+              key={item.name}
+            >
+              <Button variantColor="yellow" variant="outline">
+                {item.name}
+              </Button>
+            </Link>
+          ))}
+        </Flex>
+      </Section>
       <Section
         title="Lunch"
         text={
@@ -100,35 +120,28 @@ export const Home = () => {
         </Box>
       </Section>
       <Section
-        title="Dinner"
+        title="Takeout"
         text={
-          '旬の食材、イタリア直送の食材を使ったフルコースのご用意です。\nパスタとメインディッシュがプリフィックスとなっており、メインディッシュはご予約の際にお伺いいたします。お任せコースも承ります。\nまた、アラカルトではワインに合う小皿のおつまみから、本格的なイタリアの郷土料理まで豊富に揃えております。'
+          'ソルクオーレの食卓は、テイクアウトでお手軽にソルクオーレの本格イタリアンを楽しめるシリーズです！\n夜ご飯のおかずに困ったとき、お酒のお供に。'
         }
         image={{
-          url: 'https://www.instagram.com/p/B-oZvE7nAGL/media?size=l',
-          alt: 'dinner',
+          url:
+            'https://lh3.googleusercontent.com/ZPVP_2WB3wQR7xxGJ3__g56T0Ah0_LhBV42WWUqI7wnxKMk8XLrng1JI7bbyTMydPXcu1bFy5xlVoCUb1Ybb1eA82cCsdQLSPstCfndcS9N1WHv_Z2yy0U0cpDE8Y5NiRXbXUyXwgA',
+          alt: 'takeout',
         }}
         reverse
       >
-        <Flex justify="center" alignItems="center" marginTop={theme.space[8]} flexWrap="wrap">
-          {[
-            { name: 'コースメニュー', href: '/menu/course' },
-            { name: 'アラカルトメニュー', href: '/menu/a-la-carte' },
-          ].map((item) => (
-            <Link
-              href={item.href}
-              marginX={theme.space[2]}
-              marginBottom={theme.space[4]}
-              _hover={{
-                textDecoration: 'none',
-              }}
-              key={item.name}
-            >
-              <Button variantColor="yellow" variant="outline" aria-label={item.name}>
-                {item.name}
-              </Button>
-            </Link>
-          ))}
+        <Flex justify="center" alignItems="center" marginTop={theme.space[8]}>
+          <Link
+            href={'/menu/takeout'}
+            _hover={{
+              textDecoration: 'none',
+            }}
+          >
+            <Button variantColor="yellow" variant="outline" aria-label="メニューを見る">
+              メニューを見る
+            </Button>
+          </Link>
         </Flex>
       </Section>
       <Section
@@ -201,28 +214,36 @@ export const Home = () => {
         </Tabs>
       </Section>
       <Section
-        title="Takeout"
-        text={
-          'ソルクオーレの食卓は、テイクアウトでお手軽にソルクオーレの本格イタリアンを楽しめるシリーズです！\n夜ご飯のおかずに困ったとき、お酒のお供に。'
-        }
+        title="SNS"
+        text={'店舗からの最新のお知らせや、料理の写真などを掲載しています。よかったら覗いてみてください。'}
         image={{
           url:
-            'https://lh3.googleusercontent.com/ZPVP_2WB3wQR7xxGJ3__g56T0Ah0_LhBV42WWUqI7wnxKMk8XLrng1JI7bbyTMydPXcu1bFy5xlVoCUb1Ybb1eA82cCsdQLSPstCfndcS9N1WHv_Z2yy0U0cpDE8Y5NiRXbXUyXwgA',
-          alt: 'takeout',
+            'https://lh3.googleusercontent.com/YhdX0cVoH1I8NtF-4ZdLngPyBsxQmoUg_fDlT0B4Ah3NtfQRDPkl6s5wvh_PO-RvlmjdXDXsDjuRs93-wB8KRuxBgaNb4wGgHjgLYV96jNv3DSOV0hnGNRu3d1s7KNMdaVvBJtKPxKSa54qflvrXWoRAGlzszpxZHjP4dtBUq0i2X4W5brOVt0S5eAm14qk4UnSpvfE6tkqGnKbkg6EEPaPIB-YOrLjTVDstU8r3A8gkK4uuuCBIWLxjR0nPQofBDaeXpm0Gb3-qwdZpA36fJQKsFfLW1SAH9uA9zJqKaHxi81Uz6ZDZWNMCppt3spx6-Rzs6TtrIL4QrRvpPSThacYwJU9ZlLsJezi28GsITfFGpnmhAKHAxEm4J0LXZHorU89Yz0kBnOd1lwQ6kJrdKKcdlMat1zL58p-Nmf7FGLmgWlZ8kW2tv4wvW5aL9yopUa94Z6YatZGsJgMObj-vCHVzDjNI_Rm7v9aAzNlHTbMST9l6qZgAm1kQV1raakQGrPOtrNNIJUm_AizLFUhFyBGgg9mkU5kGkARhsbaGj3MlTZ77LP0-cGxXpKXCpG9Xto_euKxoVHW1d4HpiTnZzyNDqW7RhCQix8Ykh5gZHIhIOVzU4WTBZDEV9hSzZSduiopIxChsxjcw4Fx1dhi_Mpxz8kqgqkBiQ8b4i7ANQZhny1VJJ_k_0Udzik0B_YKPuo-MOhM75bRqrZ616hKPhLstYtUwOPE2SVJgYV9FcD7LHXeEgtTM5g',
+          alt: 'sns',
         }}
         reverse
       >
-        <Flex justify="center" alignItems="center" marginTop={theme.space[8]}>
-          <Link
-            href={'/menu/takeout'}
-            _hover={{
-              textDecoration: 'none',
-            }}
-          >
-            <Button variantColor="yellow" variant="outline" aria-label="メニューを見る">
-              メニューを見る
-            </Button>
-          </Link>
+        <Flex align="center" justify="center" flexWrap="wrap" marginTop={theme.space[4]}>
+          {[
+            { name: 'Instagram', href: 'https://www.instagram.com/vineriasorcuore1213/', icon: faInstagram },
+            { name: 'Facebook', href: 'https://www.facebook.com/vineriasorcuore1213/', icon: faFacebook },
+          ].map((item) => (
+            <Link
+              href={item.href}
+              marginX={theme.space[2]}
+              marginBottom={theme.space[4]}
+              key={item.name}
+              _hover={{ textDecoration: 'none' }}
+              isExternal
+            >
+              <Button aria-label={item.name}>
+                <FontAwesomeIcon icon={item.icon} />
+                <Text marginLeft={theme.space[2]} fontSize={theme.fontSizes.sm}>
+                  {item.name}
+                </Text>
+              </Button>
+            </Link>
+          ))}
         </Flex>
       </Section>
       <Section
@@ -278,39 +299,6 @@ export const Home = () => {
             </Fragment>
           ))}
         </SimpleGrid>
-      </Section>
-      <Section
-        title="SNS"
-        text={'店舗からの最新のお知らせや、料理の写真などを掲載しています。よかったら覗いてみてください。'}
-        image={{
-          url:
-            'https://lh3.googleusercontent.com/YhdX0cVoH1I8NtF-4ZdLngPyBsxQmoUg_fDlT0B4Ah3NtfQRDPkl6s5wvh_PO-RvlmjdXDXsDjuRs93-wB8KRuxBgaNb4wGgHjgLYV96jNv3DSOV0hnGNRu3d1s7KNMdaVvBJtKPxKSa54qflvrXWoRAGlzszpxZHjP4dtBUq0i2X4W5brOVt0S5eAm14qk4UnSpvfE6tkqGnKbkg6EEPaPIB-YOrLjTVDstU8r3A8gkK4uuuCBIWLxjR0nPQofBDaeXpm0Gb3-qwdZpA36fJQKsFfLW1SAH9uA9zJqKaHxi81Uz6ZDZWNMCppt3spx6-Rzs6TtrIL4QrRvpPSThacYwJU9ZlLsJezi28GsITfFGpnmhAKHAxEm4J0LXZHorU89Yz0kBnOd1lwQ6kJrdKKcdlMat1zL58p-Nmf7FGLmgWlZ8kW2tv4wvW5aL9yopUa94Z6YatZGsJgMObj-vCHVzDjNI_Rm7v9aAzNlHTbMST9l6qZgAm1kQV1raakQGrPOtrNNIJUm_AizLFUhFyBGgg9mkU5kGkARhsbaGj3MlTZ77LP0-cGxXpKXCpG9Xto_euKxoVHW1d4HpiTnZzyNDqW7RhCQix8Ykh5gZHIhIOVzU4WTBZDEV9hSzZSduiopIxChsxjcw4Fx1dhi_Mpxz8kqgqkBiQ8b4i7ANQZhny1VJJ_k_0Udzik0B_YKPuo-MOhM75bRqrZ616hKPhLstYtUwOPE2SVJgYV9FcD7LHXeEgtTM5g',
-          alt: 'sns',
-        }}
-        reverse
-      >
-        <Flex align="center" justify="center" flexWrap="wrap" marginTop={theme.space[4]}>
-          {[
-            { name: 'Instagram', href: 'https://www.instagram.com/vineriasorcuore1213/', icon: faInstagram },
-            { name: 'Facebook', href: 'https://www.facebook.com/vineriasorcuore1213/', icon: faFacebook },
-          ].map((item) => (
-            <Link
-              href={item.href}
-              marginX={theme.space[2]}
-              marginBottom={theme.space[4]}
-              key={item.name}
-              _hover={{ textDecoration: 'none' }}
-              isExternal
-            >
-              <Button aria-label={item.name}>
-                <FontAwesomeIcon icon={item.icon} />
-                <Text marginLeft={theme.space[2]} fontSize={theme.fontSizes.sm}>
-                  {item.name}
-                </Text>
-              </Button>
-            </Link>
-          ))}
-        </Flex>
       </Section>
     </Layout>
   );
