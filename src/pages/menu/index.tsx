@@ -81,7 +81,7 @@ export const MenuTop = () => {
                         textDecoration: 'none',
                       }}
                     >
-                      <Button variantColor="gray" variant="outline">
+                      <Button variantColor="gray" variant="outline" aria-label={item.button.label}>
                         {item.button.label}
                       </Button>
                     </Link>

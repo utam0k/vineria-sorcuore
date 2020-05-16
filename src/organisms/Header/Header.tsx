@@ -83,11 +83,18 @@ export const Header: React.FC<Props> = ({ position = 'sticky', needGradation = f
       <Flex display={['none', 'none', 'flex', 'flex']}>
         <Box marginRight={theme.space[4]}>
           {[
-            { href: 'https://www.instagram.com/vineriasorcuore1213/', icon: faInstagram },
-            { href: 'https://www.facebook.com/vineriasorcuore1213/', icon: faFacebook },
+            { label: 'instagram', href: 'https://www.instagram.com/vineriasorcuore1213/', icon: faInstagram },
+            { label: 'facebook', href: 'https://www.facebook.com/vineriasorcuore1213/', icon: faFacebook },
           ].map((item, i) => (
-            <Link href={item.href} marginX={theme.space[1]} key={i} _hover={{ textDecoration: 'none' }} isExternal>
-              <Button variant="unstyled">
+            <Link
+              href={item.href}
+              marginX={theme.space[1]}
+              key={i}
+              _hover={{ textDecoration: 'none' }}
+              aria-label={item.label}
+              isExternal
+            >
+              <Button variant="unstyled" aria-label={item.label}>
                 <FontAwesomeIcon size="2x" color={theme.colors.green[500]} icon={item.icon} />
               </Button>
             </Link>
@@ -124,7 +131,7 @@ export const Header: React.FC<Props> = ({ position = 'sticky', needGradation = f
       <Button
         display={['block', 'block', 'none', 'none']}
         p={0}
-        aria-label=""
+        aria-label="メニューを開く"
         background="transparent"
         onClick={onClick}
       >

@@ -29,7 +29,7 @@ export const Notification = () => {
                   </AlertDescription>
                 </Link>
               </Box>
-              <CloseButton size="sm" onClick={onClose} position="absolute" right="4px" top="4px" />
+              <CloseButton size="sm" onClick={onClose} position="absolute" right="4px" top="4px" aria-label="閉じる" />
             </Alert>
           </Box>
         );

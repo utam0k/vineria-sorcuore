@@ -15,6 +15,7 @@ export const Head: React.FC<Props> = ({ title, description, keywords = [], image
   return (
     <NextHead>
       <title key="title">{title}</title>
+      {description && <meta name="description" content={description} />}
 
       <meta key="og:title" property="og:title" content={title} />
       <meta key="og:site_name" property="og:site_name" content={SITE_NAME} />
