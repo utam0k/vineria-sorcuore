@@ -124,7 +124,7 @@ export const Home = () => {
               }}
               key={item.name}
             >
-              <Button variantColor="yellow" variant="outline">
+              <Button variantColor="yellow" variant="outline" aria-label={item.name}>
                 {item.name}
               </Button>
             </Link>
@@ -219,7 +219,7 @@ export const Home = () => {
               textDecoration: 'none',
             }}
           >
-            <Button variantColor="yellow" variant="outline">
+            <Button variantColor="yellow" variant="outline" aria-label="メニューを見る">
               メニューを見る
             </Button>
           </Link>
@@ -238,6 +238,7 @@ export const Home = () => {
             objectFit="cover"
           >
             <iframe
+              title="map"
               frameBorder="0"
               style={{ width: '100%', height: '100%' }}
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.3338982668247!2d139.79703251566926!3d35.69340013691105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889d9c651f49b%3A0xd05466b3466c9acb!2z44O044Kj44ON44Oq44KiIOOCveODq-OCr-OCquODvOODrFZpbmVyaWEgU29yY3VvcmU!5e0!3m2!1sja!2sjp!4v1588411529012!5m2!1sja!2sjp"
@@ -301,7 +302,7 @@ export const Home = () => {
               _hover={{ textDecoration: 'none' }}
               isExternal
             >
-              <Button>
+              <Button aria-label={item.name}>
                 <FontAwesomeIcon icon={item.icon} />
                 <Text marginLeft={theme.space[2]} fontSize={theme.fontSizes.sm}>
                   {item.name}
