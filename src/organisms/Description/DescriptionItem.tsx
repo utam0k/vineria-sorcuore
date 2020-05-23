@@ -20,7 +20,7 @@ export const DescriptionItem: React.FC<Props> = ({ label, title, link, children 
       position="relative"
       backgroundColor="rgba(255, 255, 255, 0.7)"
       width={theme.sizes.md}
-      minHeight={theme.sizes.xs}
+      minHeight={[theme.sizes['3xs'], theme.sizes['3xs'], theme.sizes.xs, theme.sizes.xs]}
       margin={theme.space[2]}
       padding={theme.space[4]}
       textAlign="center"
@@ -33,13 +33,14 @@ export const DescriptionItem: React.FC<Props> = ({ label, title, link, children 
         {title}
       </Heading>
       <Text
-        fontSize="sm"
+        fontSize={theme.fontSizes.sm}
         fontWeight="300"
         whiteSpace="pre-wrap"
         overflowWrap="break-word"
-        marginTop={theme.space[5]}
-        marginBottom="32px"
+        marginTop={theme.space[6]}
+        marginBottom={theme.space[6]}
         lineHeight="1.8em"
+        minHeight={[theme.sizes[20], theme.sizes[20], theme.sizes[24], theme.sizes[24]]}
       >
         {children}
       </Text>
