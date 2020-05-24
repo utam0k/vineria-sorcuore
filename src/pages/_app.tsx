@@ -6,8 +6,16 @@ import { Global, css } from '@emotion/core';
 import { customTheme } from '../theme';
 import { Notification } from '../organisms/Notification/Notification';
 import { Footer } from '../organisms/Footer/Footer';
+import { Notice } from '../models/notice';
+
+import useSWR from 'swr';
+import fetch from 'unfetch';
+
+const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const { data: notices } = useSWR<Notice[]>(process.env.noticeUrl || '', fetcher);
+
   return (
     <ThemeProvider theme={customTheme}>
       <CSSReset />
@@ -24,7 +32,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           }
         `}
       />
-      <Notification />
+      {notices &&
+        notices.map((notice, i) => <Notification key={i} desc={notice.name} link={notice.link} status={notice.type} />)}
       <Component {...pageProps} />
       <Footer />
     </ThemeProvider>

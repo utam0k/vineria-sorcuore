@@ -1,7 +1,13 @@
 import React, { useEffect } from 'react';
 import { Box, Alert, AlertIcon, AlertDescription, Link, CloseButton, useToast } from '@chakra-ui/core';
 
-export const Notification = () => {
+type Props = {
+  desc: string;
+  link: string;
+  status: 'info' | 'warning' | 'error' | 'success';
+};
+
+export const Notification: React.FC<Props> = ({ desc, link, status }) => {
   const toast = useToast();
 
   useEffect(() => {
@@ -13,19 +19,20 @@ export const Notification = () => {
           <Box maxWidth="100vw">
             <Alert
               display="flex"
-              status="error"
+              status={status}
               textAlign="left"
               boxShadow="lg"
               rounded="md"
               alignItems="start"
-              margin={2}
+              marginX={1}
+              marginBottom={2}
               paddingRight={8}
             >
               <AlertIcon />
               <Box flex="1">
-                <Link href={'https://www.instagram.com/p/B_B4SjMnyXX/'} textDecoration="underline">
+                <Link href={link} textDecoration="underline" isExternal>
                   <AlertDescription fontSize="sm" fontWeight="normal" whiteSpace="pre-wrap" overflowWrap="break-word">
-                    {`新型コロナウィルス感染拡大防止に伴う、店舗営業時間短縮のお知らせ`}
+                    {desc}
                   </AlertDescription>
                 </Link>
               </Box>
