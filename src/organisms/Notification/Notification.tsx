@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { Box, Alert, AlertIcon, AlertDescription, Link, CloseButton, useToast } from '@chakra-ui/core';
 
+import { Notice } from '../../models/notice';
+
 type Props = {
   desc: string;
   link: string;
-  status: 'info' | 'warning' | 'error' | 'success';
+  status: Notice['type'];
 };
 
 export const Notification: React.FC<Props> = ({ desc, link, status }) => {
