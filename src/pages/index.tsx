@@ -64,7 +64,8 @@ export const Home = () => {
           'イタリアの郷土料理から定番のお料理まで幅広いアラカルトメニュー。\n旬の食材、イタリアの食材を使ったお任せフルコース。\nその時々のお料理をご用意しております。'
         }
         image={{
-          url: 'https://www.instagram.com/p/B-oZvE7nAGL/media?size=l',
+          url:
+            'https://lh3.googleusercontent.com/_zX6qErGYUvU4qSQDjTH4dt3M7ylANFICAFk0xRnbqwlCzk77Z1lFrwPODy5LGFsBQcKnOXztYM8ksB5dXI6kKfgel-Cw0vIbgjoR0YGqxL6oHTdsgAjLImxLwnfj76Fql_mnyp3lQ',
           alt: 'dinner',
         }}
         reverse
