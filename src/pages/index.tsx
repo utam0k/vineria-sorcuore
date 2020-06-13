@@ -22,6 +22,36 @@ import { Description } from '../organisms/Description/Description';
 import { Section } from '../organisms/Section/Section';
 import { useWindowSize } from '../utils/hooks/useWindowSize';
 
+type LunchProps = {
+  name: string;
+  price: number;
+  desc: string;
+};
+
+const LunchMenu: React.FC<LunchProps> = ({ name, price, desc }) => {
+  const theme = useTheme();
+
+  return (
+    <Fragment>
+      <Flex justify="space-between" marginTop={theme.space[1]}>
+        <Heading fontSize="md" fontWeight="md">
+          {name}
+        </Heading>
+        <Text fontSize="md">{price}円</Text>
+      </Flex>
+      <Text
+        marginLeft={theme.space[10]}
+        marginTop={theme.space[1]}
+        fontSize={theme.fontSizes.sm}
+        whiteSpace="pre-wrap"
+        overflowWrap="break-word"
+      >
+        {desc}
+      </Text>
+    </Fragment>
+  );
+};
+
 export const Home = () => {
   const theme = useTheme();
 
@@ -93,32 +123,49 @@ export const Home = () => {
       </Section>
       <Section
         title="Lunch"
-        text={
-          'ビュッフェスタイルのお得なランチ。\nオードブルを８種類以上、作り立てのパスタをご用意いたします。\n（テイクアウトも可能です。）'
-        }
+        text={''}
         image={{
           url:
             'https://jimdo-storage.freetls.fastly.net/image/75731262/55fee928-e220-4128-90c1-f7b19544ce20.jpg?format=pjpg&quality=80&auto=webp&disable=upscale',
           alt: 'lunch',
         }}
       >
-        <Box marginTop={theme.space[8]}>
-          {[
-            { name: 'ブッフェ45分', price: '1,100' },
-            { name: 'ブッフェ75分', price: '1,650' },
-            { name: '詰め放題・お持ち帰り弁当', price: '1,100' },
-            { name: '飲み放題ワイン45分', price: '1,000' },
-          ].map((item) => (
-            <Fragment key={item.name}>
-              <Flex justify="space-between" marginTop={theme.space[1]}>
-                <Heading fontSize="md" fontWeight="md">
-                  {item.name}
-                </Heading>
-                <Text fontSize="md">{item.price}円</Text>
-              </Flex>
-            </Fragment>
-          ))}
-        </Box>
+        <Heading as="h3" marginBottom={theme.space[4]} fontSize={theme.fontSizes.lg} textAlign="center">
+          平日
+        </Heading>
+        {[
+          {
+            name: 'サービスランチ 45分制',
+            price: 1100,
+            desc: 'お得なサラダバー付き！！\nその日のお任せパスタ２種類からお一つお選びいただきます。',
+          },
+          {
+            name: 'テイクアウトお弁当 （作り立て）',
+            price: 1100,
+            desc: 'ヘルシーな惣菜が沢山入った、パスタのお弁当。',
+          },
+        ].map((item, i) => (
+          <LunchMenu key={i} name={item.name} price={item.price} desc={item.desc} />
+        ))}
+        <Heading
+          as="h3"
+          fontSize={theme.fontSizes.lg}
+          marginBottom={theme.space[4]}
+          marginTop={theme.space[8]}
+          textAlign="center"
+        >
+          土日・祝日
+        </Heading>
+        <LunchMenu
+          name="特別ランチ"
+          price={2600}
+          desc={
+            '季節の前菜盛り合わせ ＋ 選べるパスタ ＋ ドリンク ＋ 食後のお飲み物\n☆その他 アラカルトメニューからもご注文承ります。'
+          }
+        />
+        <Text fontSize={theme.fontSizes.sm} marginTop={theme.space[2]}>
+          ※ 休日のテイクアウトお弁当は前日までの完全予約制とさせていただきます。
+        </Text>
       </Section>
       <Section
         title="Takeout"
