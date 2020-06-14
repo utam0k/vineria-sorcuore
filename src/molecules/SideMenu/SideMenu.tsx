@@ -12,7 +12,7 @@ import {
   useTheme,
 } from '@chakra-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 import { LinkItem } from '../../atoms/LinkItem/LinkItem';
 
@@ -54,6 +54,7 @@ export const SideMenu: React.FC<Props> = ({ isOpen, onClose }) => {
             {[
               { name: 'Instagram', href: 'https://www.instagram.com/vineriasorcuore1213/', icon: faInstagram },
               { name: 'Facebook', href: 'https://www.facebook.com/vineriasorcuore1213/', icon: faFacebook },
+              { name: 'YouTube', href: 'https://www.youtube.com/channel/UCf_AH6S5UxdRj-Vulta4Vqw', icon: faYoutube },
             ].map((item) => (
               <ListItem key={item.name}>
                 <LinkItem href={item.href} isExternal>
