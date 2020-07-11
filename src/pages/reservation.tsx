@@ -3,7 +3,7 @@ import { Link, Button, SimpleGrid, Text, Heading, Flex, Box, useTheme } from '@c
 
 import { Layout } from '../templates/Layout/Layout';
 
-export const Reservation = () => {
+export const ReservationPage = () => {
   const theme = useTheme();
   return (
     <Layout>
@@ -107,4 +107,4 @@ export const Reservation = () => {
   );
 };
 
-export default Reservation;
+export default ReservationPage;

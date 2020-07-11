@@ -12,7 +12,7 @@ export const LinkItem = forwardRef<HTMLAnchorElement, Props>(({ href, children, 
       {children}
     </Link>
   ) : (
-    <NextLink href={href}>
+    <NextLink href={href} passHref>
       <Link {...props} d="flex" px={theme.space[4]} py={theme.space[2]} ref={ref}>
         {children}
       </Link>

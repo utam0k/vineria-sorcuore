@@ -3,7 +3,7 @@ import { Link, Text, Heading, Box, useTheme } from '@chakra-ui/core';
 
 import { Layout } from '../templates/Layout/Layout';
 
-export const MenuTop = () => {
+export const PrivacyPolicyPage = () => {
   const theme = useTheme();
   return (
     <Layout>
@@ -38,4 +38,4 @@ export const MenuTop = () => {
   );
 };
 
-export default MenuTop;
+export default PrivacyPolicyPage;

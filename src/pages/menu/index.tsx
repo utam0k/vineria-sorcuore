@@ -3,7 +3,7 @@ import { Link, Button, SimpleGrid, Text, Heading, Flex, Box, useTheme } from '@c
 
 import { Layout } from '../../templates/Layout/Layout';
 
-export const MenuTop = () => {
+export const MenuPage = () => {
   const theme = useTheme();
   return (
     <Layout>
@@ -96,4 +96,4 @@ export const MenuTop = () => {
   );
 };
 
-export default MenuTop;
+export default MenuPage;

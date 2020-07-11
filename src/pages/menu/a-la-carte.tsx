@@ -3,8 +3,9 @@ import { Layout } from '../../templates/Layout/Layout';
 import { Text, useTheme, ListItem, List, Heading } from '@chakra-ui/core';
 import { Section } from '../../organisms/Section/Section';
 import { Menu } from '../../models/menu';
+import { Number } from '../../atoms/Number/Number.component';
 
-const coldVegitables: Pick<Menu, 'name' | 'price'>[] = [
+const coldVegetables: Pick<Menu, 'name' | 'price'>[] = [
   {
     name: 'チーズ屋さんのお任せチーズ盛り合わせ',
     price: 1300,
@@ -125,7 +126,7 @@ const ALaCarteMenuPage = () => {
         title="冷菜"
       >
         <List>
-          {coldVegitables.map((item, i) => (
+          {coldVegetables.map((item, i) => (
             <ListItem
               display="flex"
               alignItems="center"
@@ -140,7 +141,9 @@ const ALaCarteMenuPage = () => {
               >
                 {item.name}
               </Text>
-              <Text marginLeft={theme.space[1]}>￥{item.price}</Text>
+              <Text marginLeft={theme.space[1]}>
+                ￥<Number>{item.price}</Number>
+              </Text>
             </ListItem>
           ))}
         </List>
@@ -171,7 +174,7 @@ const ALaCarteMenuPage = () => {
                 {item.name}
               </Text>
               <Text color={theme.colors.white} marginLeft={theme.space[1]}>
-                ￥{item.price}
+                ￥<Number>{item.price}</Number>
               </Text>
             </ListItem>
           ))}
@@ -231,7 +234,7 @@ const ALaCarteMenuPage = () => {
                 {item.name}
               </Text>
               <Text color={theme.colors.white} marginLeft={theme.space[1]}>
-                ￥{item.price}
+                ￥<Number>{item.price}</Number>
               </Text>
             </ListItem>
           ))}

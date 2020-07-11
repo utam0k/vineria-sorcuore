@@ -21,6 +21,7 @@ import { Layout } from '../templates/Layout/Layout';
 import { Description } from '../organisms/Description/Description';
 import { Section } from '../organisms/Section/Section';
 import { useWindowSize } from '../utils/hooks/useWindowSize';
+import { Number } from '../atoms/Number/Number.component';
 
 type LunchProps = {
   name: string;
@@ -37,7 +38,9 @@ const LunchMenu: React.FC<LunchProps> = ({ name, price, desc }) => {
         <Heading fontSize="md" fontWeight="md">
           {name}
         </Heading>
-        <Text fontSize="md">{price}円</Text>
+        <Text fontSize="md">
+          ￥<Number>{price}</Number>
+        </Text>
       </Flex>
       <Text
         marginLeft={theme.space[10]}
@@ -52,7 +55,7 @@ const LunchMenu: React.FC<LunchProps> = ({ name, price, desc }) => {
   );
 };
 
-export const Home = () => {
+export const IndexPage = () => {
   const theme = useTheme();
 
   const { width } = useWindowSize();
@@ -224,7 +227,9 @@ export const Home = () => {
                   <Heading fontSize="md" fontWeight="md">
                     {item.name}
                   </Heading>
-                  <Text fontSize="md">￥{item.price}</Text>
+                  <Text fontSize="md" flexShrink={0}>
+                    ￥<Number>{item.price}</Number>
+                  </Text>
                 </Flex>
               ))}
             </TabPanel>
@@ -239,7 +244,9 @@ export const Home = () => {
                   <Heading fontSize="md" fontWeight="md">
                     {item.name}
                   </Heading>
-                  <Text fontSize="md">￥{item.price}</Text>
+                  <Text fontSize="md">
+                    ￥<Number>{item.price}</Number>
+                  </Text>
                 </Flex>
               ))}
             </TabPanel>
@@ -254,7 +261,9 @@ export const Home = () => {
                   <Heading fontSize="md" fontWeight="md">
                     {item.name}
                   </Heading>
-                  <Text fontSize="md">￥{item.price}</Text>
+                  <Text fontSize="md">
+                    ￥<Number>{item.price}</Number>
+                  </Text>
                 </Flex>
               ))}
             </TabPanel>
@@ -353,4 +362,4 @@ export const Home = () => {
   );
 };
 
-export default Home;
+export default IndexPage;

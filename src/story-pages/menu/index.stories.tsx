@@ -1,6 +1,6 @@
 import React from 'react';
-import { MenuTop } from '../../pages/menu/index';
+import { MenuPage } from '../../pages/menu/index';
 
 export default { title: 'Menu' };
 
-export const TopPage = () => <MenuTop />;
+export const MenuPageStory = () => <MenuPage />;

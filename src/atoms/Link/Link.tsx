@@ -8,8 +8,8 @@ export const Link = forwardRef<HTMLAnchorElement, Props>(({ href, ...props }, re
   props.isExternal ? (
     <ChakraLink {...props} _focus={{ outline: 'none' }} href={href} ref={ref} />
   ) : (
-    <NextLink href={href}>
-      <ChakraLink {...props} _focus={{ outline: 'none' }} href={href} ref={ref} />
+    <NextLink href={href} passHref>
+      <ChakraLink {...props} _focus={{ outline: 'none' }} ref={ref} />
     </NextLink>
   )
 );

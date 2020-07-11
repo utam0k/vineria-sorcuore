@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, Heading, Flex, Box, useTheme } from '@chakra-ui/core';
 
 import { Layout } from '../../templates/Layout/Layout';
+import { Number } from '../../atoms/Number/Number.component';
 
 export const CourseMenuPage = () => {
   const theme = useTheme();
@@ -16,7 +17,7 @@ export const CourseMenuPage = () => {
             {`旬の食材、イタリア直送の食材を使ったフルコースのご用意です。パスタとメインディッシュがプリフィックスとなっており、メインディッシュはご予約の際にお伺いいたします。お任せコースも承ります。コースは事前の予約をお願いいたします。`}
           </Text>
           <Text whiteSpace="pre-wrap" textAlign="right">
-            {`税別 ￥9000 ~`}
+            税別 ￥<Number>{9000}</Number> ~
           </Text>
         </Box>
       </Box>
