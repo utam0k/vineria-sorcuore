@@ -58,12 +58,8 @@ export const Reservation = () => {
               },
               { name: 'TEL', desc: '03-6284-0446' },
               { name: '定休日', desc: '火曜日' },
-              { name: 'ランチ営業', desc: '月～日曜\n11時半～15時 L.O. 14時' },
-              {
-                name: 'ディナー営業',
-                desc:
-                  '月～土曜\n18時～24時\n23時最終入店 フードL.O. 22時\n\n日曜日\n18時～21時  21時最終入店\n\n月曜日 不定休 有り',
-              },
+              { name: 'ランチ営業', desc: '11:30～14:30 (L.O. 14:00)' },
+              { name: 'ディナー営業', desc: '18:00～23:00  (L.O. 22:00)' },
             ].map((item, i) => (
               <Fragment key={i}>
                 <Flex borderRight={['none', 'none', 'none', 'solid']}>
