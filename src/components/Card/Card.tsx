@@ -1,5 +1,6 @@
 import React, { useMemo, useCallback } from 'react';
 import { Text, Badge, Flex, Box, Image, useTheme, BoxProps } from '@chakra-ui/core';
+import { Number } from '../../atoms/Number/Number.component';
 
 type Props = {
   imageUrl: string;
@@ -52,7 +53,9 @@ export const Card: React.FC<Props> = ({ imageUrl, imageAlt, title, cost, descrip
       <Flex justifyContent="center">
         <Text fontSize="base">{cost.amount}</Text>
         <Box marginRight={space} />
-        <Text fontSize="base">￥{cost.price}</Text>
+        <Text fontSize="base">
+          ￥<Number>{cost.price}</Number>
+        </Text>
       </Flex>
     );
   }, [cost]);

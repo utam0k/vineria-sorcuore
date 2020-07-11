@@ -13,7 +13,7 @@ import { Menu as TMenu } from '../../models/menu';
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
-export const Takeout = () => {
+export const TakeoutMenuPage = () => {
   const theme = useTheme();
   const windowSize = useWindowSize();
 
@@ -78,4 +78,4 @@ export const Takeout = () => {
   );
 };
 
-export default Takeout;
+export default TakeoutMenuPage;

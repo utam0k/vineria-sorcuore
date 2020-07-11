@@ -1,6 +1,6 @@
 import React from 'react';
-import { Takeout } from '../../pages/menu/takeout';
+import { TakeoutMenuPage } from '../../pages/menu/takeout';
 
 export default { title: 'Menu' };
 
-export const TakeoutPage = () => <Takeout />;
+export const TakeoutMenuPageStory = () => <TakeoutMenuPage />;
