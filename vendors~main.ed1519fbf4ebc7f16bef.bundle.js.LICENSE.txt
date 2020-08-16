@@ -40,8 +40,6 @@ object-assign
  * Released under the MIT License.
  */
 
-/*! https://mths.be/punycode v1.4.1 by @mathias */
-
 /** @license React v0.19.1
  * scheduler.production.min.js
  *
@@ -102,3 +100,7 @@ object-assign
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+//! stable.js 0.1.8, https://github.com/Two-Screen/stable
+
+//! © 2018 Angry Bytes and contributors. MIT licensed.
