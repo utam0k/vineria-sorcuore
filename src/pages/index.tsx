@@ -138,18 +138,21 @@ export const IndexPage = () => {
         </Heading>
         {[
           {
-            name: 'サービスランチ 45分制',
+            name: '平日限定！ヘルシーパスタランチ',
             price: 1100,
-            desc: 'お得なサラダバー付き！！\nその日のお任せパスタ２種類からお一つお選びいただきます。',
+            desc: 'お持ち帰り弁当OK！(月・水・木限定)\nサラダプレート + パスタ2種類からおひとつお選び頂きます。',
           },
           {
-            name: 'テイクアウトお弁当 （作り立て）',
+            name: '平日金曜限定カレーランチ',
             price: 1100,
-            desc: 'ヘルシーな惣菜が沢山入った、パスタのお弁当。',
+            desc: 'サラダ付き！カレー二種類からお一つお選びいただきます。',
           },
         ].map((item, i) => (
           <LunchMenu key={i} name={item.name} price={item.price} desc={item.desc} />
         ))}
+        <Text fontSize={theme.fontSizes.sm} marginTop={theme.space[2]}>
+          ※ 平日金曜はカレーランチのみとなります。
+        </Text>
         <Heading
           as="h3"
           fontSize={theme.fontSizes.lg}
@@ -160,14 +163,14 @@ export const IndexPage = () => {
           土日・祝日
         </Heading>
         <LunchMenu
-          name="休日限定アラカルトランチ"
+          name="アラカルトランチ"
           price={2600}
           desc={
-            '季節の前菜盛り合わせ ＋ 選べるパスタ ＋ ドリンク ＋ 食後のお飲み物\n☆その他 アラカルトメニューからもご注文承ります。'
+            'グランドメニューをお昼からご提供致します。お昼からゆっくりお食事を楽しめます。\nお弁当は前日までの完全予約とさせていただきます。'
           }
         />
         <Text fontSize={theme.fontSizes.sm} marginTop={theme.space[2]}>
-          ※ 休日のテイクアウトお弁当は前日までの完全予約制とさせていただきます。
+          ※ 土曜日、日曜日、祝日は アラカルトメニューのみのご案内となります。ご了承ください。
         </Text>
       </Section>
       <Section
