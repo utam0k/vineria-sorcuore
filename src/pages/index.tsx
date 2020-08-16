@@ -25,7 +25,7 @@ import { Number } from '../atoms/Number/Number.component';
 
 type LunchProps = {
   name: string;
-  price: number;
+  price?: number;
   desc: string;
 };
 
@@ -38,9 +38,11 @@ const LunchMenu: React.FC<LunchProps> = ({ name, price, desc }) => {
         <Heading fontSize="md" fontWeight="md">
           {name}
         </Heading>
-        <Text fontSize="md">
-          ￥<Number>{price}</Number>
-        </Text>
+        {price && (
+          <Text fontSize="md">
+            ￥<Number>{price}</Number>
+          </Text>
+        )}
       </Flex>
       <Text
         marginLeft={theme.space[10]}
@@ -164,7 +166,6 @@ export const IndexPage = () => {
         </Heading>
         <LunchMenu
           name="アラカルトランチ"
-          price={2600}
           desc={
             'グランドメニューをお昼からご提供致します。お昼からゆっくりお食事を楽しめます。\nお弁当は前日までの完全予約とさせていただきます。'
           }
