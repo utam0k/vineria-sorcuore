@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { faInstagram, faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faFacebook, faYoutube, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import { SideMenu } from '../../molecules/SideMenu/SideMenu';
 import { HeaderLinkItem } from './HeaderLinkItem';
@@ -85,6 +85,7 @@ export const Header: React.FC<Props> = ({ position = 'sticky', needGradation = f
           {[
             { label: 'instagram', href: 'https://www.instagram.com/vineriasorcuore1213/', icon: faInstagram },
             { label: 'facebook', href: 'https://www.facebook.com/vineriasorcuore1213/', icon: faFacebook },
+            { label: 'twitter', href: 'https://twitter.com/vineriasorcuore', icon: faTwitter },
             { label: 'youtube', href: 'https://www.youtube.com/channel/UCf_AH6S5UxdRj-Vulta4Vqw', icon: faYoutube },
           ].map((item, i) => (
             <Link

@@ -15,7 +15,7 @@ import {
   SimpleGrid,
 } from '@chakra-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faFacebook, faYoutube, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import { Layout } from '../templates/Layout/Layout';
 import { Description } from '../organisms/Description/Description';
@@ -288,11 +288,12 @@ export const IndexPage = () => {
           {[
             { name: 'Instagram', href: 'https://www.instagram.com/vineriasorcuore1213/', icon: faInstagram },
             { name: 'Facebook', href: 'https://www.facebook.com/vineriasorcuore1213/', icon: faFacebook },
+            { name: 'Twitter', href: 'https://twitter.com/vineriasorcuore', icon: faTwitter },
             { name: 'YouTube', href: 'https://www.youtube.com/channel/UCf_AH6S5UxdRj-Vulta4Vqw', icon: faYoutube },
           ].map((item) => (
             <Link
               href={item.href}
-              marginX={theme.space[2]}
+              marginRight={theme.space[2]}
               marginBottom={theme.space[4]}
               key={item.name}
               _hover={{ textDecoration: 'none' }}
