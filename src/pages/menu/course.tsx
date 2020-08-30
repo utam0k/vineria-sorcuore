@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Heading, Box, useTheme, List, ListItem } from '@chakra-ui/core';
+import { Text, Heading, Box, useTheme, List, ListItem, Flex } from '@chakra-ui/core';
 
 import { Layout } from '../../templates/Layout/Layout';
 import { Number } from '../../atoms/Number/Number.component';
@@ -27,32 +27,45 @@ export const CourseMenuPage = () => {
         <Text textAlign="right" fontSize="lg">
           ￥<Number>{6000}</Number>
         </Text>
-        <List marginTop={theme.space[4]}>
+        <Box marginTop={theme.space[4]}>
           {[
-            { category: '～アミューズ～', name: 'ふるの牛トモサンカクの炙りカルパッチョ　トリュフかけ' },
-            { category: '～前菜～', name: 'ふるの牛レバーのヴェネツィア風' },
-            { category: '～１皿目のメイン～', name: 'ふるの牛のグリル' },
-            { category: '～２皿目のメイン～', name: 'ふるの牛のブラザート　　(赤ワイン煮込み)' },
-            { category: '～〆のパスタ～', name: 'ソルクオーレ名物！ボローニャ風ラザニア' },
-            { category: '～食後のデザート、お飲み物～' },
+            { category: 'アミューズ', name: 'ふるの牛トモサンカクの炙りカルパッチョ　トリュフかけ' },
+            { category: '前菜', name: 'ふるの牛レバーのヴェネツィア風' },
+            { category: '１皿目のメイン', name: 'ふるの牛のグリル' },
+            { category: '２皿目のメイン', name: 'ふるの牛のブラザート　　(赤ワイン煮込み)' },
+            { category: '〆のパスタ', name: 'ソルクオーレ名物！ボローニャ風ラザニア' },
+            { category: '食後のデザート、お飲み物' },
           ].map((item, i) => (
-            <ListItem
-              key={item.name}
-              paddingY={theme.space[1]}
-              borderTop={i > 0 ? `1px solid ${theme.colors.gray[100]}` : undefined}
+            <Flex
+              key={i}
+              minWidth={[0, 0, theme.sizes['xl'], theme.sizes['xl']]}
+              alignItems={['left', 'left', 'center', 'center']}
+              direction="column"
             >
-              <Text>{item.category}</Text>
+              <Heading
+                width="100%"
+                fontSize={['lg', 'lg', 'xl', 'xl']}
+                fontWeight="medium"
+                borderBottom="solid 1px gray"
+                marginBottom={[theme.space[2], theme.space[2], 0, 0]}
+                textAlign={['left', 'left', 'center', 'center']}
+              >
+                {item.category}
+              </Heading>
               <Text
-                as="p"
-                fontSize={[theme.fontSizes.xs, theme.fontSizes.xs, theme.fontSizes.md, theme.fontSizes.md]}
+                marginLeft={[theme.space[4], theme.space[4], 0, 0]}
+                marginBottom={[theme.space[6]]}
+                marginTop={[0, 0, theme.space[2], theme.space[2]]}
                 whiteSpace="pre-wrap"
-                marginLeft={theme.space[8]}
+                overflowWrap="break-word"
+                wordBreak="break-all"
+                textAlign={['left', 'left', 'left', 'center']}
               >
                 {item.name}
               </Text>
-            </ListItem>
+            </Flex>
           ))}
-        </List>
+        </Box>
       </Section>
       <Box as="section" paddingX={theme.space[8]} paddingY={theme.space[24]} backgroundColor={theme.colors.green[700]}>
         <Box maxWidth={theme.sizes['5xl']} marginX="auto">
@@ -115,6 +128,64 @@ export const CourseMenuPage = () => {
           <Text textAlign="right" fontSize="lg">
             ￥<Number>{9000}</Number>
           </Text>
+          <Box maxWidth={theme.sizes['4xl']} marginTop={theme.space[4]} marginX="auto">
+            {[
+              {
+                name: 'アミューズ盛り合わせ',
+                desc: 'その日のお任せ盛り合わせ',
+              },
+              {
+                name: '冷菜 2品',
+                desc: '丸長青果さんの季節の野菜 と熊本 天草の鮮魚のマリネ',
+              },
+              {
+                name: '温菜',
+                desc: 'その日のお任せ',
+              },
+              {
+                name: 'お肉',
+                desc:
+                  '・常陽ポークのグリル\n・ふるの牛 シンタマグリル\n・季節のジビエ  猪 又は 蝦夷鹿 （鹿は＋￥1000）\n・二宮さんのホロホロ鳥フリカッセ\n・二宮さんのバルバリー鴨のソテー\n・西川さん 北海道アスパラひつじ\n\nご予約の際にお伺い致します。 \n仕入れ状況によりご用意できない場合がございますのでご了承ください。',
+              },
+              {
+                name: 'パスタ',
+                desc: 'お任せパスタ',
+              },
+              {
+                name: 'デザート',
+                desc: 'お好みのデザート\n食後のお飲み物',
+              },
+            ].map((item, i) => (
+              <Flex
+                key={i}
+                minWidth={[0, 0, theme.sizes['xl'], theme.sizes['xl']]}
+                alignItems={['left', 'left', 'center', 'center']}
+                direction="column"
+              >
+                <Heading
+                  width="100%"
+                  fontSize={['lg', 'lg', '2xl', '2xl']}
+                  fontWeight="medium"
+                  borderBottom="solid 1px gray"
+                  marginBottom={[theme.space[2], theme.space[2], 0, 0]}
+                  textAlign={['left', 'left', 'center', 'center']}
+                >
+                  {item.name}
+                </Heading>
+                <Text
+                  marginLeft={[theme.space[4], theme.space[4], 0, 0]}
+                  marginBottom={[theme.space[6]]}
+                  marginTop={[0, 0, theme.space[2], theme.space[2]]}
+                  whiteSpace="pre-wrap"
+                  overflowWrap="break-word"
+                  wordBreak="break-all"
+                  textAlign={['left', 'left', 'left', 'center']}
+                >
+                  {item.desc}
+                </Text>
+              </Flex>
+            ))}
+          </Box>
         </Box>
       </Box>
     </Layout>
